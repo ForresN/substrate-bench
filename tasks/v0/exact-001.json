@@ -1,0 +1,14 @@
+{
+  "id": "exact-001",
+  "category": "exact_computation",
+  "prompt": "A depot has 8813 shipping containers. Each container holds exactly 4729 widgets. After 100237 widgets are shipped out, how many widgets remain in the depot?",
+  "gold_substrate": ["code"],
+  "checker": {
+    "type": "numeric_exact",
+    "reference_impl": "widget_remainder",
+    "params": { "containers": 8813, "per_container": 4729, "shipped": 100237 },
+    "answer": 41576440
+  },
+  "difficulty": 2,
+  "rationale": "Multi-step exact arithmetic (large multiply then subtract) that next-token continuation reliably flubs. Exact computation is the right substrate."
+}

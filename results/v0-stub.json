@@ -1,0 +1,1271 @@
+{
+  "config": {
+    "task_set": "v0",
+    "n_tasks": 10,
+    "conditions": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "solver": "stub",
+    "seed": 0,
+    "pricing": {
+      "in_per_1k": 0.003,
+      "out_per_1k": 0.015,
+      "tool_cost": 0.0005,
+      "base_latency_s": 0.2,
+      "token_latency_per_1k": 0.8,
+      "tool_latency_s": 0.3
+    },
+    "composite_weights": {
+      "task": 0.6,
+      "substrate": 0.4
+    }
+  },
+  "metrics": {
+    "A": {
+      "n": 10,
+      "task_accuracy": 0.1,
+      "substrate_selection_accuracy": 0.2,
+      "composite": 0.14,
+      "mean_cost": 0.0007878,
+      "total_cost": 0.007878,
+      "mean_latency_s": 0.232,
+      "cost_adjusted_accuracy": 126.93577050012695,
+      "verified_rate": 0.0,
+      "switch_rate": 0.0,
+      "failure_modes": {
+        "none": 1,
+        "wrong_substrate": 8,
+        "right_substrate_bad_execution": 1,
+        "no_verification": 0,
+        "gave_up": 0
+      }
+    },
+    "B": {
+      "n": 10,
+      "task_accuracy": 0.2,
+      "substrate_selection_accuracy": 0.2,
+      "composite": 0.2,
+      "mean_cost": 0.0031878,
+      "total_cost": 0.031878000000000004,
+      "mean_latency_s": 0.36,
+      "cost_adjusted_accuracy": 62.739193173975785,
+      "verified_rate": 0.0,
+      "switch_rate": 0.0,
+      "failure_modes": {
+        "none": 2,
+        "wrong_substrate": 8,
+        "right_substrate_bad_execution": 0,
+        "no_verification": 0,
+        "gave_up": 0
+      }
+    },
+    "C": {
+      "n": 10,
+      "task_accuracy": 0.5,
+      "substrate_selection_accuracy": 0.5,
+      "composite": 0.5,
+      "mean_cost": 0.0011378,
+      "total_cost": 0.011378000000000001,
+      "mean_latency_s": 0.524,
+      "cost_adjusted_accuracy": 439.4445420987871,
+      "verified_rate": 0.0,
+      "switch_rate": null,
+      "failure_modes": {
+        "none": 5,
+        "wrong_substrate": 5,
+        "right_substrate_bad_execution": 0,
+        "no_verification": 0,
+        "gave_up": 0
+      }
+    },
+    "D": {
+      "n": 10,
+      "task_accuracy": 0.9,
+      "substrate_selection_accuracy": 0.9,
+      "composite": 0.9000000000000001,
+      "mean_cost": 0.0017528,
+      "total_cost": 0.017528000000000002,
+      "mean_latency_s": 0.4748,
+      "cost_adjusted_accuracy": 513.4641716111364,
+      "verified_rate": 0.0,
+      "switch_rate": 0.0,
+      "failure_modes": {
+        "none": 9,
+        "wrong_substrate": 1,
+        "right_substrate_bad_execution": 0,
+        "no_verification": 0,
+        "gave_up": 0
+      }
+    },
+    "E": {
+      "n": 10,
+      "task_accuracy": 1.0,
+      "substrate_selection_accuracy": 1.0,
+      "composite": 1.0,
+      "mean_cost": 0.0026555,
+      "total_cost": 0.026555,
+      "mean_latency_s": 0.7632,
+      "cost_adjusted_accuracy": 376.5769158350593,
+      "verified_rate": 1.0,
+      "switch_rate": 1.0,
+      "failure_modes": {
+        "none": 10,
+        "wrong_substrate": 0,
+        "right_substrate_bad_execution": 0,
+        "no_verification": 0,
+        "gave_up": 0
+      }
+    }
+  },
+  "results": {
+    "A": [
+      {
+        "task_id": "exact-001",
+        "category": "exact_computation",
+        "condition": "A",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "code"
+        ],
+        "answer": 41576439,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.000699,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-002",
+        "category": "exact_computation",
+        "condition": "A",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "code",
+          "verify"
+        ],
+        "answer": 1,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.000789,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "lang-001",
+        "category": "language",
+        "condition": "A",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "positive",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.000747,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "meta-001",
+        "category": "meta_cognition",
+        "condition": "A",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "code"
+        ],
+        "answer": 14,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.000747,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "rule-001",
+        "category": "hidden_rule",
+        "condition": "A",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "code",
+          "search"
+        ],
+        "answer": [
+          [
+            9,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            5
+          ],
+          [
+            6,
+            7,
+            8
+          ]
+        ],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.00084,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "search-001",
+        "category": "search",
+        "condition": "A",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.000825,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "search-002",
+        "category": "search",
+        "condition": "A",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.000864,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-001",
+        "category": "simulation",
+        "condition": "A",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 250.9703753853741,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.000816,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-002",
+        "category": "simulation",
+        "condition": "A",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "simulation",
+          "code"
+        ],
+        "answer": 37.619111,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.000756,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-001",
+        "category": "social",
+        "condition": "A",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "box",
+        "answer_correct": false,
+        "substrate_correct": true,
+        "cost": 0.000795,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "right_substrate_bad_execution",
+        "difficulty": 2
+      }
+    ],
+    "B": [
+      {
+        "task_id": "exact-001",
+        "category": "exact_computation",
+        "condition": "B",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "code"
+        ],
+        "answer": 41576439,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.003099,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-002",
+        "category": "exact_computation",
+        "condition": "B",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "code",
+          "verify"
+        ],
+        "answer": 1,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.003189,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "lang-001",
+        "category": "language",
+        "condition": "B",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "positive",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.003147,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "meta-001",
+        "category": "meta_cognition",
+        "condition": "B",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "code"
+        ],
+        "answer": 14,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.003147,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "rule-001",
+        "category": "hidden_rule",
+        "condition": "B",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "code",
+          "search"
+        ],
+        "answer": [
+          [
+            9,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            5
+          ],
+          [
+            6,
+            7,
+            8
+          ]
+        ],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.00324,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "search-001",
+        "category": "search",
+        "condition": "B",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.003225,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "search-002",
+        "category": "search",
+        "condition": "B",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.003264,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-001",
+        "category": "simulation",
+        "condition": "B",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 250.9703753853741,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.003216,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-002",
+        "category": "simulation",
+        "condition": "B",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "simulation",
+          "code"
+        ],
+        "answer": 37.619111,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.003156,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-001",
+        "category": "social",
+        "condition": "B",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "basket",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.003195,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      }
+    ],
+    "C": [
+      {
+        "task_id": "exact-001",
+        "category": "exact_computation",
+        "condition": "C",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code"
+        ],
+        "answer": 41576440,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001049,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-002",
+        "category": "exact_computation",
+        "condition": "C",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code",
+          "verify"
+        ],
+        "answer": 2,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001139,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "lang-001",
+        "category": "language",
+        "condition": "C",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.001097,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "meta-001",
+        "category": "meta_cognition",
+        "condition": "C",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code"
+        ],
+        "answer": 15,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001097,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "rule-001",
+        "category": "hidden_rule",
+        "condition": "C",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code",
+          "search"
+        ],
+        "answer": [
+          [
+            2,
+            1,
+            9
+          ],
+          [
+            5,
+            4,
+            3
+          ],
+          [
+            8,
+            7,
+            6
+          ]
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.00119,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "search-001",
+        "category": "search",
+        "condition": "C",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.001175,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "search-002",
+        "category": "search",
+        "condition": "C",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.001214,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-001",
+        "category": "simulation",
+        "condition": "C",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 250.9703753853741,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.001166,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-002",
+        "category": "simulation",
+        "condition": "C",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "simulation",
+          "code"
+        ],
+        "answer": 35.619111,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001106,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-001",
+        "category": "social",
+        "condition": "C",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "box",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.001145,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      }
+    ],
+    "D": [
+      {
+        "task_id": "exact-001",
+        "category": "exact_computation",
+        "condition": "D",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code"
+        ],
+        "answer": 41576440,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001049,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-002",
+        "category": "exact_computation",
+        "condition": "D",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code",
+          "verify"
+        ],
+        "answer": 2,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001139,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "lang-001",
+        "category": "language",
+        "condition": "D",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "positive",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.003147,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "meta-001",
+        "category": "meta_cognition",
+        "condition": "D",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "code"
+        ],
+        "answer": 14,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "cost": 0.003147,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "rule-001",
+        "category": "hidden_rule",
+        "condition": "D",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code",
+          "search"
+        ],
+        "answer": [
+          [
+            2,
+            1,
+            9
+          ],
+          [
+            5,
+            4,
+            3
+          ],
+          [
+            8,
+            7,
+            6
+          ]
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.00119,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "search-001",
+        "category": "search",
+        "condition": "D",
+        "chosen_substrate": "search",
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001175,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "search-002",
+        "category": "search",
+        "condition": "D",
+        "chosen_substrate": "search",
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          "D",
+          "D",
+          "R",
+          "R",
+          "D",
+          "D",
+          "R",
+          "R"
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001214,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-001",
+        "category": "simulation",
+        "condition": "D",
+        "chosen_substrate": "simulation",
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 99.321797,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001166,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-002",
+        "category": "simulation",
+        "condition": "D",
+        "chosen_substrate": "simulation",
+        "gold_substrate": [
+          "simulation",
+          "code"
+        ],
+        "answer": 35.619111,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001106,
+        "latency_s": 0.524,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-001",
+        "category": "social",
+        "condition": "D",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "basket",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.003195,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      }
+    ],
+    "E": [
+      {
+        "task_id": "exact-001",
+        "category": "exact_computation",
+        "condition": "E",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code"
+        ],
+        "answer": 41576440,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001897,
+        "latency_s": 0.84,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-002",
+        "category": "exact_computation",
+        "condition": "E",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code",
+          "verify"
+        ],
+        "answer": 2,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.002032,
+        "latency_s": 0.84,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "lang-001",
+        "category": "language",
+        "condition": "E",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "positive",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.003519,
+        "latency_s": 0.376,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "meta-001",
+        "category": "meta_cognition",
+        "condition": "E",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code"
+        ],
+        "answer": 15,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.005116,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": true,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "rule-001",
+        "category": "hidden_rule",
+        "condition": "E",
+        "chosen_substrate": "code",
+        "gold_substrate": [
+          "code",
+          "search"
+        ],
+        "answer": [
+          [
+            2,
+            1,
+            9
+          ],
+          [
+            5,
+            4,
+            3
+          ],
+          [
+            8,
+            7,
+            6
+          ]
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.00211,
+        "latency_s": 0.84,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "search-001",
+        "category": "search",
+        "condition": "E",
+        "chosen_substrate": "search",
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.002086,
+        "latency_s": 0.84,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "search-002",
+        "category": "search",
+        "condition": "E",
+        "chosen_substrate": "search",
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          "D",
+          "D",
+          "R",
+          "R",
+          "D",
+          "D",
+          "R",
+          "R"
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.002146,
+        "latency_s": 0.84,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-001",
+        "category": "simulation",
+        "condition": "E",
+        "chosen_substrate": "simulation",
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 99.321797,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.002074,
+        "latency_s": 0.84,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-002",
+        "category": "simulation",
+        "condition": "E",
+        "chosen_substrate": "simulation",
+        "gold_substrate": [
+          "simulation",
+          "code"
+        ],
+        "answer": 35.619111,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.001984,
+        "latency_s": 0.84,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-001",
+        "category": "social",
+        "condition": "E",
+        "chosen_substrate": "language",
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "basket",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "cost": 0.003591,
+        "latency_s": 0.376,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      }
+    ]
+  }
+}

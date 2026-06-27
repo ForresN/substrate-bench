@@ -1,0 +1,9 @@
+{
+  "id": "social-001",
+  "category": "social",
+  "prompt": "Sally puts her marble in the basket and leaves the room. While she is away, Anne takes the marble out of the basket and hides it in the box. Sally comes back. Answer with exactly one word: which container (basket or box) will Sally look in FIRST for her marble?",
+  "gold_substrate": ["language"],
+  "checker": { "type": "exact_label", "answer": "basket", "labels": ["basket", "box"] },
+  "difficulty": 2,
+  "rationale": "Classic false-belief / theory-of-mind. The answer requires modelling Sally's (false) belief, not the world state. Routing to code is a category error; this is the second trap that should cost condition C points."
+}

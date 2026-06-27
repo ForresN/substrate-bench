@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "substrate-bench"
+version = "0.1.0"
+description = "A measurement instrument for substrate-selection accuracy in cognitive agents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Cognitive Systems Lab" }]
+keywords = ["benchmark", "agents", "substrate-selection", "evaluation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Science/Research",
+]
+# Intentionally zero runtime dependencies: the instrument is pure stdlib so it
+# runs offline and the scorer stays deterministic.
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+substrate-bench = "substrate_bench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+substrate_bench = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

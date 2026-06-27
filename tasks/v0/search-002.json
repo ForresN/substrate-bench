@@ -1,0 +1,17 @@
+{
+  "id": "search-002",
+  "category": "search",
+  "prompt": "On the 5x5 grid below ('.' is free, '#' is a wall), find the shortest path from the top-left cell (row 0, col 0) to the bottom-right cell (row 4, col 4). You may move U, D, L, R one cell at a time and may not enter a wall or leave the grid. Give the path as a list of moves.\n\n.....\n.###.\n...#.\n.#.#.\n.#...",
+  "gold_substrate": ["search"],
+  "checker": {
+    "type": "sequence_valid",
+    "problem": "gridworld",
+    "grid": [".....", ".###.", "...#.", ".#.#.", ".#..."],
+    "start": [0, 0],
+    "goal": [4, 4],
+    "require_optimal": true,
+    "optimal_length": 8
+  },
+  "difficulty": 2,
+  "rationale": "Shortest-path planning with obstacles; optimality is checked against BFS. Greedy text reasoning tends to find a path but not the shortest one."
+}

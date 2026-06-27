@@ -1,0 +1,18 @@
+{
+  "id": "search-001",
+  "category": "search",
+  "prompt": "Tower of Hanoi with 4 disks on three pegs A, B, C. All disks start on peg A (largest on the bottom). Move all disks to peg C, never placing a larger disk on a smaller one and moving one top disk at a time. Give the shortest sequence of moves, each move written as [from_peg, to_peg].",
+  "gold_substrate": ["search"],
+  "checker": {
+    "type": "sequence_valid",
+    "problem": "hanoi",
+    "n": 4,
+    "source": "A",
+    "target": "C",
+    "aux": "B",
+    "require_optimal": true,
+    "optimal_length": 15
+  },
+  "difficulty": 2,
+  "rationale": "Discrete state-space planning (Apple-paper flavour). Text continuation degrades as the move count grows; explicit search produces a legal, optimal sequence."
+}

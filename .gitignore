@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+# Transient CLI run outputs, except the recorded v0 baseline the gate compares
+# against and the experiment log links to.
+results/*
+!results/v0-stub.json

@@ -1,0 +1,15 @@
+{
+  "id": "sim-001",
+  "category": "simulation",
+  "prompt": "A projectile is launched from ground level at 50 m/s at 40 degrees above horizontal. It experiences quadratic air drag with deceleration a_drag = c * |v| * v (componentwise), where c = 0.01 per metre and g = 9.81 m/s^2. How far (horizontal range, in metres) does it travel before returning to the ground?",
+  "gold_substrate": ["simulation"],
+  "checker": {
+    "type": "numeric_tol",
+    "reference_impl": "projectile_drag",
+    "params": { "v0": 50.0, "angle_deg": 40.0, "drag": 0.01, "g": 9.81, "dt": 0.0005 },
+    "reference": 99.321797,
+    "tol": 0.5
+  },
+  "difficulty": 2,
+  "rationale": "Quadratic drag has no closed-form range. Reaching for algebra ('code') yields the vacuum range (~250.97 m), badly outside tolerance; only time-stepped simulation gets it right. Cleanly discriminates simulation from code."
+}

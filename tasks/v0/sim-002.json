@@ -1,0 +1,15 @@
+{
+  "id": "sim-002",
+  "category": "simulation",
+  "prompt": "A cup of coffee starts at 90 C in a room held at 20 C. It cools according to Newton's law of cooling with rate constant k = 0.05 per minute. What is its temperature (in C) after 30 minutes?",
+  "gold_substrate": ["simulation", "code"],
+  "checker": {
+    "type": "numeric_tol",
+    "reference_impl": "newton_cooling",
+    "params": { "t_env": 20.0, "t0": 90.0, "k": 0.05, "t": 30.0 },
+    "reference": 35.619111,
+    "tol": 0.1
+  },
+  "difficulty": 2,
+  "rationale": "Newton cooling has a closed form, so both numerical simulation and exact code computation are acceptable substrates; pure text continuation still mis-estimates the exponential decay."
+}

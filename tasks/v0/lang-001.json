@@ -1,0 +1,9 @@
+{
+  "id": "lang-001",
+  "category": "language",
+  "prompt": "Classify the sentiment of this customer review as exactly one of: positive, negative, neutral.\n\nReview: \"I waited three weeks for this to arrive and honestly? Worth every single day of the wait. I can't put it down.\"",
+  "gold_substrate": ["language"],
+  "checker": { "type": "exact_label", "answer": "positive", "labels": ["positive", "negative", "neutral"] },
+  "difficulty": 1,
+  "rationale": "Genuinely linguistic: meaning lives in tone and the 'worth the wait' reversal. There is nothing to compute; routing to code is a category error and should cost an indiscriminate-tooling agent (condition C) points here."
+}
