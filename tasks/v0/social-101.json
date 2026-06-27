@@ -1,0 +1,19 @@
+{
+  "id": "social-101",
+  "category": "social",
+  "prompt": "Tom hides his keys in the drawer and leaves the house. While he is gone, his sister moves the keys to the cupboard. When Tom comes back, where will he look FIRST for his keys? Answer drawer or cupboard.",
+  "gold_substrate": [
+    "social"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "drawer",
+    "labels": [
+      "drawer",
+      "cupboard"
+    ]
+  },
+  "difficulty": 1,
+  "rationale": "First-order false belief.",
+  "provenance": "human_review"
+}

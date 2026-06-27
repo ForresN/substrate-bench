@@ -11,15 +11,23 @@ from __future__ import annotations
 from typing import Any
 
 from ..schema import Task
-from . import arithmetic, dynamics, rules, search_ref
+from . import arithmetic, dynamics, rules, search_ref, verify_ref
 
 # Map of reference_impl name -> callable(params) for the numeric/exact tasks.
 _NUMERIC_IMPLS = {
     "widget_remainder": arithmetic.widget_remainder,
     "count_valid_schedules": arithmetic.count_valid_schedules,
     "handshakes": arithmetic.handshakes,
+    "gcd": arithmetic.gcd,
+    "lcm": arithmetic.lcm,
+    "arithmetic_series_sum": arithmetic.arithmetic_series_sum,
+    "modexp": arithmetic.modexp,
+    "combinations": arithmetic.combinations,
+    "total_seconds": arithmetic.total_seconds,
     "projectile_drag": dynamics.projectile_drag,
     "newton_cooling": dynamics.newton_cooling,
+    "radioactive_decay": dynamics.radioactive_decay,
+    "rc_charge": dynamics.rc_charge,
 }
 
 
@@ -38,10 +46,16 @@ def reference_value(task: Task) -> Any:
             return search_ref.hanoi_solve(c["n"], c["source"], c["target"], c["aux"])
         if c["problem"] == "gridworld":
             return search_ref.gridworld_shortest(c["grid"], c["start"], c["goal"])
+        if c["problem"] == "waterjug":
+            return search_ref.waterjug_solve(c["cap_a"], c["cap_b"], c["target"])
         raise ValueError(f"unknown sequence problem {c['problem']!r}")
     if ctype == "grid_match":
         return rules.solve(c["examples"], c["test_input"])
     if ctype == "exact_label":
+        # verify tasks carry a validator + candidate so the gold label is
+        # reference-derived; human-review label tasks just store the answer.
+        if "verify_impl" in c:
+            return verify_ref.label_for(c)
         return c["answer"]
     raise ValueError(f"no reference for checker type {ctype!r}")
 

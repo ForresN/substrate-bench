@@ -1,0 +1,20 @@
+{
+  "id": "lang-106",
+  "category": "language",
+  "prompt": "Anna asks, \"Did everyone pass the exam?\" Ben replies, \"Some of them did.\" What does Ben most likely implicate? (a) everyone passed (b) not everyone passed (c) nobody passed. Answer a, b, or c.",
+  "gold_substrate": [
+    "language"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "b",
+    "labels": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "difficulty": 3,
+  "rationale": "Scalar implicature ('some' implies 'not all').",
+  "provenance": "human_review"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "verify-101",
+  "category": "verify",
+  "prompt": "Below is a proposed complete solution to Tower of Hanoi with 3 disks (move all from A to C, one top disk at a time, never larger on smaller). Is it valid? moves = [[\"A\", \"C\"], [\"A\", \"B\"], [\"C\", \"B\"], [\"A\", \"C\"], [\"B\", \"A\"], [\"B\", \"C\"], [\"A\", \"C\"]]\nAnswer 'valid' or 'invalid'.",
+  "gold_substrate": [
+    "verify"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "labels": [
+      "valid",
+      "invalid"
+    ],
+    "verify_impl": "hanoi",
+    "candidate": {
+      "n": 3,
+      "moves": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "A"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    "answer": "valid"
+  },
+  "difficulty": 1,
+  "rationale": "Verify a candidate Hanoi solution.",
+  "provenance": "reference"
+}

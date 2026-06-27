@@ -1,20 +1,29 @@
-"""Render a results set into `leaderboard.md`."""
+"""Render a results set into `leaderboard.md` (rescaled for the v0.1 task set)."""
 
 from __future__ import annotations
 
 from pathlib import Path
+from statistics import mean
 from typing import Any, Dict, List
 
 from .conditions import CONDITION_INFO, CONDITION_ORDER
 from .schema import Result
+from .substrates import TASK_BEARING_STRATEGIES
 
 
-def _fmt_pct(x: float) -> str:
+def _pct(x: float) -> str:
     return f"{x * 100:.0f}%"
 
 
-def _fmt_switch(x) -> str:
+def _switch(x) -> str:
     return "n/a" if x is None else f"{x * 100:.0f}%"
+
+
+def _breakdown(results: List[Result], keyfn, attr: str) -> Dict[Any, float]:
+    buckets: Dict[Any, List[float]] = {}
+    for r in results:
+        buckets.setdefault(keyfn(r), []).append(1.0 if getattr(r, attr) else 0.0)
+    return {k: mean(v) for k, v in buckets.items()}
 
 
 def render_leaderboard(
@@ -25,90 +34,80 @@ def render_leaderboard(
     task_set: str,
 ) -> str:
     conditions = [c for c in CONDITION_ORDER if c in results_by_condition]
-    any_results = results_by_condition[conditions[0]]
-    tasks = [(r.task_id, "+".join(r.gold_substrate)) for r in any_results]
+    n_tasks = len(results_by_condition[conditions[0]])
+    difficulties = sorted({r.difficulty for r in results_by_condition[conditions[0]]})
 
-    lines: List[str] = []
-    lines.append("# substrate-bench leaderboard")
-    lines.append("")
-    lines.append(
-        "**Thesis:** agents that *select* the right computational substrate beat "
-        "agents that don't — and substrate-selection accuracy is the number that "
-        "shows it. The point to read for is the asymmetry on `language`/`social` "
-        "tasks, where indiscriminate code use (condition C) **loses**."
+    L: List[str] = []
+    L.append("# substrate-bench leaderboard")
+    L.append("")
+    L.append(
+        "**Thesis:** agents that *select* the right cognitive strategy beat agents "
+        "that don't — and substrate-selection accuracy is the number that shows it. "
+        "Read for the asymmetry on `language`/`social` tasks, where indiscriminate "
+        "code use (condition C) is the wrong **strategy** and loses."
     )
-    lines.append("")
-    lines.append(f"- Solver: `{solver_name}`  ·  Task set: `{task_set}`  ·  Tasks: {len(tasks)}")
-    lines.append("")
+    L.append("")
+    L.append(f"- Solver: `{solver_name}`  ·  Task set: `{task_set}`  ·  Tasks: {n_tasks}")
+    L.append("")
 
     # --- condition summary ---------------------------------------------------
-    lines.append("## Conditions")
-    lines.append("")
-    lines.append(
+    L.append("## Conditions")
+    L.append("")
+    L.append(
         "| Condition | Description | Substrate-sel. acc | Task acc | Composite | "
-        "Mean cost ($) | Cost-adj acc | Switch rate (meta) | Verified |"
+        "Mean cost ($) | Cost-adj acc | Switch (meta) | Verified | Audit pass |"
     )
-    lines.append("|---|---|---|---|---|---|---|---|---|")
+    L.append("|---|---|---|---|---|---|---|---|---|---|")
     for c in conditions:
         m = metrics[c]
         name, desc = CONDITION_INFO[c]
-        lines.append(
-            f"| **{c} · {name}** | {desc} | "
-            f"{_fmt_pct(m['substrate_selection_accuracy'])} | "
-            f"{_fmt_pct(m['task_accuracy'])} | "
-            f"{m['composite']:.3f} | "
-            f"{m['mean_cost']:.6f} | "
-            f"{m['cost_adjusted_accuracy']:.1f} | "
-            f"{_fmt_switch(m['switch_rate'])} | "
-            f"{_fmt_pct(m['verified_rate'])} |"
+        L.append(
+            f"| **{c} · {name}** | {desc} | {_pct(m['substrate_selection_accuracy'])} | "
+            f"{_pct(m['task_accuracy'])} | {m['composite']:.3f} | {m['mean_cost']:.6f} | "
+            f"{m['cost_adjusted_accuracy']:.1f} | {_switch(m['switch_rate'])} | "
+            f"{_pct(m['verified_rate'])} | {_pct(m['audit_pass_rate'])} |"
         )
-    lines.append("")
-    lines.append("*Composite = 0.6 × task accuracy + 0.4 × substrate-selection accuracy.*")
-    lines.append("")
+    L.append("")
+    L.append("*Composite = 0.6 × task accuracy + 0.4 × substrate-selection accuracy.*")
+    L.append("")
 
-    # --- per-task answer correctness ----------------------------------------
-    def _grid(attr: str, title: str, note: str) -> None:
-        lines.append(f"## {title}")
-        lines.append("")
-        lines.append(note)
-        lines.append("")
-        header = "| Task | gold | " + " | ".join(conditions) + " |"
-        lines.append(header)
-        lines.append("|" + "---|" * (len(conditions) + 2))
-        by_task: Dict[str, Dict[str, Result]] = {}
-        for c in conditions:
-            for r in results_by_condition[c]:
-                by_task.setdefault(r.task_id, {})[c] = r
-        for tid, gold in tasks:
-            cells = []
-            for c in conditions:
-                r = by_task[tid][c]
-                ok = getattr(r, attr)
-                cells.append("✓" if ok else "✗")
-            lines.append(f"| {tid} | {gold} | " + " | ".join(cells) + " |")
-        lines.append("")
+    # --- substrate-selection accuracy by gold strategy -----------------------
+    L.append("## Substrate-selection accuracy by gold strategy")
+    L.append("")
+    L.append("Declared strategy ∈ the task's gold set, broken out by the task's primary strategy.")
+    L.append("")
+    L.append("| Strategy | " + " | ".join(conditions) + " |")
+    L.append("|" + "---|" * (len(conditions) + 1))
+    strat_key = lambda r: r.gold_substrate[0]
+    per_cond_strat = {c: _breakdown(results_by_condition[c], strat_key, "substrate_correct") for c in conditions}
+    present = [s for s in TASK_BEARING_STRATEGIES if any(s in per_cond_strat[c] for c in conditions)]
+    for s in present:
+        cells = [(_pct(per_cond_strat[c][s]) if s in per_cond_strat[c] else "—") for c in conditions]
+        L.append(f"| {s} | " + " | ".join(cells) + " |")
+    L.append("")
 
-    _grid(
-        "answer_correct",
-        "Per-task answer correctness",
-        "✓ = the declared checker passed.",
-    )
-    _grid(
-        "substrate_correct",
-        "Per-task substrate selection",
-        "✓ = the condition's chosen substrate was in the task's gold set. "
-        "Note condition **C** failing the `language`/`social` tasks (lang-001, "
-        "social-001) and `simulation`-only sim-001 — that is the whole argument.",
-    )
+    # --- task accuracy by difficulty (regime collapse) -----------------------
+    L.append("## Task accuracy by difficulty")
+    L.append("")
+    L.append("Where the difficulty-regime collapse shows up (the Apple-paper effect).")
+    L.append("")
+    L.append("| Difficulty | " + " | ".join(conditions) + " |")
+    L.append("|" + "---|" * (len(conditions) + 1))
+    diff_key = lambda r: r.difficulty
+    per_cond_diff = {c: _breakdown(results_by_condition[c], diff_key, "answer_correct") for c in conditions}
+    for d in difficulties:
+        cells = [(_pct(per_cond_diff[c][d]) if d in per_cond_diff[c] else "—") for c in conditions]
+        L.append(f"| d{d} | " + " | ".join(cells) + " |")
+    L.append("")
 
-    lines.append("---")
-    lines.append(
-        "_Generated by `substrate-bench`. Numbers from the offline `stub` solver "
-        "are illustrative of the instrument, not measured model performance; "
-        "plug in a real provider to get real numbers._"
+    L.append("---")
+    L.append(
+        "_Generated by `substrate-bench`. Numbers from the offline `stub` solver are "
+        "illustrative of the instrument, not measured model performance; plug in a "
+        "real provider for real numbers._"
     )
-    lines.append("")
-    return "\n".join(lines)
+    L.append("")
+    return "\n".join(L)
 
 
 def write_leaderboard(

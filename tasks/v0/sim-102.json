@@ -1,0 +1,24 @@
+{
+  "id": "sim-102",
+  "category": "simulation",
+  "prompt": "A cup of tea at 95 C sits in a 22 C room and cools per Newton's law with k = 0.08 per minute. What is its temperature (C) after 15 minutes?",
+  "gold_substrate": [
+    "simulation",
+    "exact_computation"
+  ],
+  "checker": {
+    "type": "numeric_tol",
+    "reference_impl": "newton_cooling",
+    "params": {
+      "t_env": 22.0,
+      "t0": 95.0,
+      "k": 0.08,
+      "t": 15.0
+    },
+    "reference": 43.987177,
+    "tol": 0.05
+  },
+  "difficulty": 1,
+  "rationale": "Newton cooling; closed form exists.",
+  "provenance": "reference"
+}

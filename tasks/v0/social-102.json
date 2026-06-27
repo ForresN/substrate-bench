@@ -1,0 +1,20 @@
+{
+  "id": "social-102",
+  "category": "social",
+  "prompt": "Maya spent weeks making a gift. Her friend opened it, smiled widely, and gave her a big hug. How does Maya most likely feel? Answer happy, sad, or angry.",
+  "gold_substrate": [
+    "social"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "happy",
+    "labels": [
+      "happy",
+      "sad",
+      "angry"
+    ]
+  },
+  "difficulty": 1,
+  "rationale": "Emotion attribution from social cues.",
+  "provenance": "human_review"
+}

@@ -1,14 +1,16 @@
 """Execute conditions over tasks and turn solver behaviour into scored Results.
 
-The runner is the only place that joins the three concerns: a condition produces
-behaviour (a SolverOutput), the checker judges the answer, and the scoring
-module classifies the failure. No model is consulted here.
+The runner joins the concerns: a condition produces behaviour (a SolverOutput
+with a route declaration), the checker judges the answer, the audit checks
+declaration/behaviour consistency, and scoring classifies the failure. No model
+is consulted here.
 """
 
 from __future__ import annotations
 
 from typing import Dict, List, Optional, Sequence
 
+from .audit import audit_consistency
 from .checkers import run_checker
 from .conditions import CONDITION_ORDER, CONDITIONS, Pricing
 from .model import Model, StubModel
@@ -17,9 +19,10 @@ from .scoring import classify_failure
 
 
 def score_output(task: Task, condition: str, out: SolverOutput) -> Result:
-    """Judge one SolverOutput against the task's checker and gold substrate."""
+    """Judge one SolverOutput: two-level scoring (contract §3) + consistency audit."""
     answer_correct = run_checker(task, out.answer)
-    substrate_correct = out.chosen_substrate in task.gold_substrate
+    substrate_correct = out.declaration.strategy in task.gold_substrate
+    audit = audit_consistency(out.declaration, out.code_executed)
     failure_mode = classify_failure(
         answer=out.answer,
         answer_correct=answer_correct,
@@ -31,11 +34,15 @@ def score_output(task: Task, condition: str, out: SolverOutput) -> Result:
         task_id=task.id,
         category=task.category,
         condition=condition,
-        chosen_substrate=out.chosen_substrate,
+        declared_strategy=out.declaration.strategy,
+        executes_code=out.declaration.executes_code,
+        code_executed=out.code_executed,
         gold_substrate=list(task.gold_substrate),
         answer=out.answer,
         answer_correct=answer_correct,
         substrate_correct=substrate_correct,
+        audit_passed=audit.passed,
+        audit_detail=audit.detail,
         cost=out.cost,
         latency_s=out.latency_s,
         verified=out.verified,

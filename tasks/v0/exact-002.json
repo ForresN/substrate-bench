@@ -2,7 +2,7 @@
   "id": "exact-002",
   "category": "exact_computation",
   "prompt": "Three one-hour meetings (A, B, C) must each be placed in a distinct time slot drawn from {9, 10, 11}. Meeting A must finish before meeting B starts (A's slot is earlier than B's). Meeting C cannot be held at 9. How many distinct valid schedules are there?",
-  "gold_substrate": ["code", "verify"],
+  "gold_substrate": ["exact_computation", "verify"],
   "checker": {
     "type": "numeric_exact",
     "reference_impl": "count_valid_schedules",
@@ -15,5 +15,5 @@
     "answer": 2
   },
   "difficulty": 1,
-  "rationale": "A small constraint-satisfaction count. The exact answer requires enumerating and checking constraints (code), and the natural follow-up is to verify each candidate schedule against the constraints (verify)."
+  "rationale": "A small constraint-satisfaction count. The exact answer requires enumerating and checking constraints (strategy exact_computation, realised in code), and the natural follow-up is to verify each candidate schedule against the constraints (verify)."
 }

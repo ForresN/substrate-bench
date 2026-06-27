@@ -1,0 +1,19 @@
+{
+  "id": "social-104",
+  "category": "social",
+  "prompt": "Anna puts her chocolate in the blue box and leaves the room. Ben moves it to the green box. Ben does not know that Anna secretly watched through the window and saw him move it. When Anna returns, which box does BEN think Anna will look in first? Answer blue or green.",
+  "gold_substrate": [
+    "social"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "blue",
+    "labels": [
+      "blue",
+      "green"
+    ]
+  },
+  "difficulty": 2,
+  "rationale": "Second-order false belief (Ben's model of Anna's belief).",
+  "provenance": "human_review"
+}

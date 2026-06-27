@@ -1,0 +1,50 @@
+{
+  "id": "verify-105",
+  "category": "verify",
+  "prompt": "Three meetings A, B, C must take distinct slots from {9,10,11}, with A earlier than B and C not at 9. Proposed schedule: A=9, B=10, C=11. Does it satisfy all constraints? Answer 'valid' or 'invalid'.",
+  "gold_substrate": [
+    "verify"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "labels": [
+      "valid",
+      "invalid"
+    ],
+    "verify_impl": "schedule",
+    "candidate": {
+      "constraints": {
+        "meetings": [
+          "A",
+          "B",
+          "C"
+        ],
+        "slots": [
+          9,
+          10,
+          11
+        ],
+        "before": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "not_in": {
+          "C": [
+            9
+          ]
+        }
+      },
+      "assignment": {
+        "A": 9,
+        "B": 10,
+        "C": 11
+      }
+    },
+    "answer": "valid"
+  },
+  "difficulty": 2,
+  "rationale": "Verify a schedule against constraints.",
+  "provenance": "reference"
+}

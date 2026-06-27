@@ -1,0 +1,33 @@
+{
+  "id": "search-105",
+  "category": "search",
+  "prompt": "On the 6x6 grid below ('.' free, '#' wall), give the shortest path of U/D/L/R moves from (row 0, col 0) to (row 5, col 5).\n\n......\n.####.\n.####.\n.####.\n.####.\n......",
+  "gold_substrate": [
+    "search"
+  ],
+  "checker": {
+    "type": "sequence_valid",
+    "problem": "gridworld",
+    "grid": [
+      "......",
+      ".####.",
+      ".####.",
+      ".####.",
+      ".####.",
+      "......"
+    ],
+    "start": [
+      0,
+      0
+    ],
+    "goal": [
+      5,
+      5
+    ],
+    "require_optimal": true,
+    "optimal_length": 10
+  },
+  "difficulty": 3,
+  "rationale": "Larger maze; greedy text reasoning tends to miss the shortest route.",
+  "provenance": "reference"
+}

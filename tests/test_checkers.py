@@ -5,7 +5,7 @@ from substrate_bench.references import search_ref
 from substrate_bench.schema import Task
 
 
-def _task(checker, gold=("code",), category="exact_computation"):
+def _task(checker, gold=("exact_computation",), category="exact_computation"):
     return Task("t", category, "p", list(gold), checker, 2, "")
 
 
@@ -85,6 +85,16 @@ def test_sequence_valid_gridworld_shortest_passes_others_fail():
     assert run_checker(t, path)
     assert not run_checker(t, [])
     assert not run_checker(t, ["U", "U"])  # walks off the grid
+
+
+def test_sequence_valid_waterjug():
+    checker = {"type": "sequence_valid", "problem": "waterjug",
+               "cap_a": 5, "cap_b": 3, "target": 4, "require_optimal": True}
+    t = _task(checker, gold=("search",), category="search")
+    sol = search_ref.waterjug_solve(5, 3, 4)
+    assert run_checker(t, sol)
+    assert not run_checker(t, [])
+    assert not run_checker(t, ["fill A"])  # does not reach target
 
 
 # --- grid_match ------------------------------------------------------------ #

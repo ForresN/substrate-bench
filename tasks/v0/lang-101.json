@@ -1,0 +1,20 @@
+{
+  "id": "lang-101",
+  "category": "language",
+  "prompt": "Classify the sentiment of this review as positive, negative, or neutral:\n\"The screen cracked in the first week and support ignored three emails.\"",
+  "gold_substrate": [
+    "language"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "negative",
+    "labels": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "difficulty": 1,
+  "rationale": "Plain negative sentiment.",
+  "provenance": "human_review"
+}

@@ -4,35 +4,41 @@ The instrument is meant to grow. The three extension surfaces, easiest first:
 
 ## 1. Add a task
 
-Drop a JSON file in `tasks/<set>/` (e.g. `tasks/v0/`). Schema (validated by
-`schema.validate_task`):
+Prefer the committed generator `tools/author_tasks.py` (gold from references, or
+human-reviewed for language/social) — `python tools/author_tasks.py` regenerates
+the grown set deterministically. To add one by hand, drop a JSON file in
+`tasks/<set>/` (validated by `schema.validate_task`):
 
 ```json
 {
-  "id": "exact-003",
+  "id": "exact-201",
   "category": "exact_computation",
   "prompt": "…the question as the solver sees it…",
-  "gold_substrate": ["code"],
+  "gold_substrate": ["exact_computation"],
   "checker": { "type": "numeric_exact", "reference_impl": "…", "params": {…}, "answer": 42 },
   "difficulty": 2,
-  "rationale": "why this discriminates a substrate choice"
+  "rationale": "why this discriminates a strategy choice",
+  "provenance": "reference"
 }
 ```
 
-Rules:
-- `gold_substrate` ⊆ {`language`, `code`, `simulation`, `search`, `memory`, `verify`}, non-empty.
-- `difficulty` ∈ {1, 2, 3}.
+Rules (contract v0.1):
+- `gold_substrate` is the **strategy** axis ⊆ {`language`, `exact_computation`,
+  `simulation`, `search`, `memory`, `verify`, `social`}, non-empty. **`code` is not
+  a strategy** — it's the execution medium (`executes_code`), carried on the
+  solver's route declaration, not on the task.
+- `difficulty` ∈ {1, 2, 3}; `provenance` ∈ {`reference`, `human_review`}.
 - `checker.type` ∈ {`exact_label`, `numeric_exact`, `numeric_tol`, `sequence_valid`, `grid_match`}.
-- **Gold must come from a reference, never an LLM.** For `numeric_*`, store the
-  value a reference impl produces and add it to `tests/test_references.py` so the
-  derivation is checked. For `sequence_valid`, store the problem params; the
-  reference validates candidates at run time.
+- **Gold provenance:** computational gold (`exact/simulation/search/verify`) comes
+  from a trusted reference (`provenance: "reference"`); `language`/`social` gold is
+  human-authored (`provenance: "human_review"`). **Never from a solver.** Reference
+  golds are re-derived in `tests/test_references.py` to prove it.
 
-Make sure the offline `stub` solver still behaves sensibly: a task's correctness
-under the stub is gated by whether the chosen substrate is in `gold_substrate`
-(see `references/gold.py`), so a new task slots into the existing matrix without
-code changes as long as its `category` is in `substrates.ROUTER_CATEGORY_MAP`.
-New categories need a line there.
+Make sure the offline `stub` solver still behaves sensibly: under the stub, a
+task's correctness is gated by whether the declared strategy ∈ `gold_substrate`
+(see `model.StubModel`), so a new task slots in without code changes as long as
+its `category` is in `substrates.ROUTER_CATEGORY_MAP` (categories that *are*
+strategy names map to themselves). New categories need a line there.
 
 ## 2. Add a checker type
 
@@ -52,12 +58,20 @@ network, no randomness, no wall-clock) so scoring stays seed-stable. Wire it int
 
 ## Plugging in a real model
 
-Conditions only ever call `Model.answer(task, *, cot)`. Implement it once and
-register a zero-arg factory in `cli.SOLVERS` to expose it to the CLI. The
-quickest path is `model.CallableModel`, which wraps a
-`complete(prompt, cot) -> (text, in_tok, out_tok)` callable and parses the
-completion with `model.parse_answer` (instruct the model to end with
-`Answer: <x>`).
+Conditions only ever call `Model.solve(task, *, force_strategy,
+force_executes_code, cot)`. Implement it once and register a zero-arg factory in
+`cli.SOLVERS`. The quickest path is `model.CallableModel`, which wraps a
+`complete(prompt, cot) -> (text, in_tok, out_tok[, code_executed])` callable. For
+D/E it asks the model to emit the JSON route declaration and parses it (loud
+failure on malformed); for A/B/C the declaration is fixed and only the answer is
+parsed. The optional 4th return value (observed `code_executed`) feeds the
+consistency audit.
+
+## Promoting a baseline (human-only)
+
+`substrate-bench baseline promote` requires a TTY and refuses for any
+non-interactive caller (contract §4). Do not work around this from an agent —
+the guardrail is the point. Commit `baselines/` so promotions show in git history.
 
 ## Before you push
 

@@ -1,0 +1,30 @@
+{
+  "id": "search-101",
+  "category": "search",
+  "prompt": "On the 3x3 grid below ('.' free, '#' wall), give the shortest path of U/D/L/R moves from (row 0, col 0) to (row 2, col 2).\n\n...\n.#.\n...",
+  "gold_substrate": [
+    "search"
+  ],
+  "checker": {
+    "type": "sequence_valid",
+    "problem": "gridworld",
+    "grid": [
+      "...",
+      ".#.",
+      "..."
+    ],
+    "start": [
+      0,
+      0
+    ],
+    "goal": [
+      2,
+      2
+    ],
+    "require_optimal": true,
+    "optimal_length": 4
+  },
+  "difficulty": 1,
+  "rationale": "Small shortest-path; optimality checked by BFS.",
+  "provenance": "reference"
+}

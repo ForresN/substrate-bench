@@ -1,0 +1,24 @@
+{
+  "id": "sim-103",
+  "category": "simulation",
+  "prompt": "A capacitor charges through a 1000 ohm resistor and 0.002 F capacitance from a 9 V source. What is the capacitor voltage (V) after 3 seconds?",
+  "gold_substrate": [
+    "simulation",
+    "exact_computation"
+  ],
+  "checker": {
+    "type": "numeric_tol",
+    "reference_impl": "rc_charge",
+    "params": {
+      "v": 9.0,
+      "r": 1000.0,
+      "c": 0.002,
+      "t": 3.0
+    },
+    "reference": 6.991829,
+    "tol": 0.02
+  },
+  "difficulty": 2,
+  "rationale": "RC charging; exponential approach, closed form exists.",
+  "provenance": "reference"
+}

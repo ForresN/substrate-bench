@@ -16,9 +16,11 @@ from substrate_bench.scoring import (
 def _result(**kw):
     base = dict(
         task_id="t", category="exact_computation", condition="X",
-        chosen_substrate="code", gold_substrate=["code"], answer=1,
-        answer_correct=True, substrate_correct=True, cost=0.01, latency_s=0.5,
-        verified=False, self_corrected=False, failure_mode="none", difficulty=2,
+        declared_strategy="exact_computation", executes_code=True, code_executed=True,
+        gold_substrate=["exact_computation"], answer=1,
+        answer_correct=True, substrate_correct=True, audit_passed=True, audit_detail="ok",
+        cost=0.01, latency_s=0.5, verified=False, self_corrected=False,
+        failure_mode="none", difficulty=2,
     )
     base.update(kw)
     return Result(**base)
@@ -78,6 +80,16 @@ def test_aggregate_basic_metrics():
     assert m["cost_adjusted_accuracy"] == pytest.approx(0.5 / 0.03)
     assert m["failure_modes"]["wrong_substrate"] == 1
     assert m["failure_modes"]["right_substrate_bad_execution"] == 1
+
+
+def test_aggregate_audit_pass_rate():
+    results = [
+        _result(audit_passed=True),
+        _result(audit_passed=False),
+        _result(audit_passed=True),
+        _result(audit_passed=True),
+    ]
+    assert aggregate(results)["audit_pass_rate"] == pytest.approx(0.75)
 
 
 def test_aggregate_switch_rate_meta_only():

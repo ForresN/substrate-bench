@@ -1,0 +1,20 @@
+{
+  "id": "search-103",
+  "category": "search",
+  "prompt": "You have a 5-litre jug and a 3-litre jug, both empty, and a tap. Allowed actions: 'fill A', 'fill B', 'empty A', 'empty B', 'pour A->B', 'pour B->A'. Give the shortest action sequence that leaves exactly 4 litres in one of the jugs.",
+  "gold_substrate": [
+    "search"
+  ],
+  "checker": {
+    "type": "sequence_valid",
+    "problem": "waterjug",
+    "cap_a": 5,
+    "cap_b": 3,
+    "target": 4,
+    "require_optimal": true,
+    "optimal_length": 6
+  },
+  "difficulty": 2,
+  "rationale": "Water-jug planning; BFS over jug states, optimality checked.",
+  "provenance": "reference"
+}

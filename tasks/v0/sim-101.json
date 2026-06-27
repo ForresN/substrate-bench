@@ -1,0 +1,23 @@
+{
+  "id": "sim-101",
+  "category": "simulation",
+  "prompt": "A radioactive sample of 80 mg has a half-life of 5 hours. How many milligrams remain after 12 hours?",
+  "gold_substrate": [
+    "simulation",
+    "exact_computation"
+  ],
+  "checker": {
+    "type": "numeric_tol",
+    "reference_impl": "radioactive_decay",
+    "params": {
+      "n0": 80.0,
+      "half_life": 5.0,
+      "t": 12.0
+    },
+    "reference": 15.157166,
+    "tol": 0.05
+  },
+  "difficulty": 1,
+  "rationale": "Exponential decay; closed form exists so exact_computation also valid.",
+  "provenance": "reference"
+}

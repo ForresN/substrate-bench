@@ -56,6 +56,10 @@ def check_sequence_valid(task: Task, answer: Any) -> bool:
         return search_ref.gridworld_validate(
             c["grid"], c["start"], c["goal"], answer, require_optimal
         )
+    if c["problem"] == "waterjug":
+        return search_ref.waterjug_validate(
+            c["cap_a"], c["cap_b"], c["target"], answer, require_optimal
+        )
     return False
 
 
@@ -86,7 +90,8 @@ def is_verifiable(task: Task) -> bool:
     """Can a `verify` substrate independently refute a candidate answer?
 
     Computational checks can be re-run against constraints/tests; a purely
-    linguistic answer (e.g. sentiment) cannot be formally verified, so the
-    verifier must trust it.
+    linguistic/social answer (e.g. sentiment, theory-of-mind) cannot be formally
+    verified, so the verifier must trust it.
     """
-    return task.checker["type"] != "exact_label" and "language" not in task.gold_substrate
+    linguistic = set(task.gold_substrate) & {"language", "social"}
+    return task.checker["type"] != "exact_label" and not linguistic

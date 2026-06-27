@@ -2,7 +2,7 @@
   "id": "meta-001",
   "category": "meta_cognition",
   "prompt": "At a small reunion dinner, every one of the 6 guests shakes hands with every other guest exactly once. The host remarks afterwards that there were '14 handshakes in total'. Exactly how many handshakes actually took place?",
-  "gold_substrate": ["code"],
+  "gold_substrate": ["exact_computation"],
   "checker": {
     "type": "numeric_exact",
     "reference_impl": "handshakes",
@@ -10,5 +10,5 @@
     "answer": 15
   },
   "difficulty": 3,
-  "rationale": "A prose-stated problem that is secretly combinatorial (C(6,2) = 15). The trap is that the surface form reads as a language/social anecdote, so a router is tempted to answer in language and anchor on the host's stated 14. The interesting signal is the SWITCH: detecting the first (language) attempt is wrong and re-routing to code."
+  "rationale": "A prose-stated problem that is secretly combinatorial (C(6,2) = 15). The trap is that the surface form reads as a language/social anecdote, so a router is tempted to answer in language and anchor on the host's stated 14. The interesting signal is the SWITCH: detecting the first (language) attempt is wrong and re-routing to exact_computation."
 }

@@ -1,0 +1,20 @@
+{
+  "id": "lang-105",
+  "category": "language",
+  "prompt": "Classify the sentiment of this review as positive, negative, or neutral:\n\"It's not that the food was bad, exactly \u2014 it's that I can't think of a single thing I'd order again.\"",
+  "gold_substrate": [
+    "language"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "negative",
+    "labels": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "difficulty": 3,
+  "rationale": "Negation + faint-praise; surface words look mild.",
+  "provenance": "human_review"
+}

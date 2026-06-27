@@ -1,3 +1,9 @@
+> **Superseded (2026-06-28).** This is the historical v0 handoff. Its open
+> questions were resolved by [`measurement-contract-v0.1.md`](measurement-contract-v0.1.md)
+> and implemented in the v0.1 upgrade; see
+> [`experiments/2026-06-28-v0.1-baseline-stub.md`](experiments/2026-06-28-v0.1-baseline-stub.md).
+> The repo is now under git and pushed to GitHub. Kept for provenance.
+
 # Handoff — substrate-bench v0 (build agent → design agent)
 
 **Date:** 2026-06-27 · **From:** build/implementation agent · **Status:** v0 complete, all acceptance criteria met, ready for design review.

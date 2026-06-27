@@ -1,0 +1,21 @@
+{
+  "id": "exact-105",
+  "category": "exact_computation",
+  "prompt": "What are the last three digits of 2 raised to the power 1000? (That is, 2^1000 modulo 1000.)",
+  "gold_substrate": [
+    "exact_computation"
+  ],
+  "checker": {
+    "type": "numeric_exact",
+    "reference_impl": "modexp",
+    "params": {
+      "base": 2,
+      "exp": 1000,
+      "mod": 1000
+    },
+    "answer": 376
+  },
+  "difficulty": 3,
+  "rationale": "Large modular exponentiation; far beyond reliable next-token arithmetic.",
+  "provenance": "reference"
+}

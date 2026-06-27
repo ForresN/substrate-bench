@@ -1,0 +1,19 @@
+{
+  "id": "social-106",
+  "category": "social",
+  "prompt": "Liam knows the surprise party is really in the garden. He wants to fool Mia, so he tells her it's in the kitchen, and she believes him. Where does Mia now think the party is? Answer kitchen or garden.",
+  "gold_substrate": [
+    "social"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "kitchen",
+    "labels": [
+      "kitchen",
+      "garden"
+    ]
+  },
+  "difficulty": 3,
+  "rationale": "Induced false belief via deception.",
+  "provenance": "human_review"
+}

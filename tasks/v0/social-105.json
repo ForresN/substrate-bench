@@ -1,0 +1,19 @@
+{
+  "id": "social-105",
+  "category": "social",
+  "prompt": "At a dinner party, Jordan says loudly, \"Whoever baked this cake used way too much salt.\" The host, sitting right there, baked the cake. Did Jordan most likely commit a social faux pas? Answer yes or no.",
+  "gold_substrate": [
+    "social"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "yes",
+    "labels": [
+      "yes",
+      "no"
+    ]
+  },
+  "difficulty": 2,
+  "rationale": "Faux-pas recognition.",
+  "provenance": "human_review"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "verify-102",
+  "category": "verify",
+  "prompt": "Is the following bracket string balanced (every opener correctly matched and nested)? \"([)]\"  Answer 'valid' or 'invalid'.",
+  "gold_substrate": [
+    "verify"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "labels": [
+      "valid",
+      "invalid"
+    ],
+    "verify_impl": "balanced",
+    "candidate": {
+      "s": "([)]"
+    },
+    "answer": "invalid"
+  },
+  "difficulty": 1,
+  "rationale": "Verify bracket balance.",
+  "provenance": "reference"
+}

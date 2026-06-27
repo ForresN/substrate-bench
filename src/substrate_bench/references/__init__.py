@@ -5,6 +5,6 @@ Python and must NEVER call a model -- that invariant is what keeps scoring
 seed-stable and the gate falsifiable.
 """
 
-from . import arithmetic, dynamics, gold, rules, search_ref
+from . import arithmetic, dynamics, gold, rules, search_ref, verify_ref
 
-__all__ = ["arithmetic", "dynamics", "rules", "search_ref", "gold"]
+__all__ = ["arithmetic", "dynamics", "rules", "search_ref", "verify_ref", "gold"]

@@ -1,0 +1,19 @@
+{
+  "id": "social-103",
+  "category": "social",
+  "prompt": "Sam was looking forward to a quiet evening alone. His roommate just invited ten friends over for the night. Is Sam most likely pleased or annoyed? Answer pleased or annoyed.",
+  "gold_substrate": [
+    "social"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "annoyed",
+    "labels": [
+      "pleased",
+      "annoyed"
+    ]
+  },
+  "difficulty": 1,
+  "rationale": "Desire-based emotion prediction.",
+  "provenance": "human_review"
+}

@@ -1,7 +1,10 @@
-"""`substrate-bench` command line: run the benchmark and (re)generate the board.
+"""`substrate-bench` command line.
 
     substrate-bench run --condition all --tasks v0
     substrate-bench leaderboard --from results/v0-stub.json
+    substrate-bench baseline show --solver stub --task-set v0
+    substrate-bench baseline promote results/v0-stub.json --solver stub --task-set v0   # human-only
+    substrate-bench gate results/candidate.json --solver stub --task-set v0 --condition E
 """
 
 from __future__ import annotations
@@ -16,11 +19,12 @@ from typing import Dict, List, Optional, Sequence
 from .conditions import CONDITION_INFO, CONDITION_ORDER, Pricing
 from .leaderboard import write_leaderboard
 from .model import StubModel
+from .registry import PromotionDenied, promote_baseline, show_baseline
 from .runner import run_all
 from .schema import Result, load_tasks
-from .scoring import summarize
+from .scoring import evaluate_gate, summarize
 
-# Registry of available (offline) solvers. Real providers register here.
+# Registry of available (offline) solvers. Real providers register a factory here.
 SOLVERS = {"stub": StubModel, "mock": StubModel}
 
 
@@ -82,21 +86,20 @@ def _load_payload(path: str | Path):
 
 
 def _print_summary(metrics: Dict[str, dict]) -> None:
-    print(f"\n{'Cond':<14}{'Sub-acc':>9}{'Task-acc':>9}{'Composite':>11}{'MeanCost':>11}{'Switch':>9}")
-    print("-" * 63)
+    print(f"\n{'Cond':<16}{'Sub-acc':>9}{'Task-acc':>9}{'Composite':>11}{'MeanCost':>11}{'Audit':>8}")
+    print("-" * 64)
     for c in CONDITION_ORDER:
         if c not in metrics:
             continue
         m = metrics[c]
         name = CONDITION_INFO[c][0]
-        sw = "n/a" if m["switch_rate"] is None else f"{m['switch_rate'] * 100:.0f}%"
         print(
-            f"{c + ' ' + name:<14}"
+            f"{c + ' ' + name:<16}"
             f"{m['substrate_selection_accuracy'] * 100:>8.0f}%"
             f"{m['task_accuracy'] * 100:>8.0f}%"
             f"{m['composite']:>11.3f}"
             f"{m['mean_cost']:>11.6f}"
-            f"{sw:>9}"
+            f"{m['audit_pass_rate'] * 100:>7.0f}%"
         )
     print()
 
@@ -125,7 +128,7 @@ def cmd_run(ns: argparse.Namespace) -> int:
     write_leaderboard(board_path, results, metrics, solver_name=ns.solver, task_set=ns.tasks)
 
     _print_summary(metrics)
-    print(f"results   -> {out_path}")
+    print(f"results     -> {out_path}")
     print(f"leaderboard -> {board_path}")
     return 0
 
@@ -139,6 +142,58 @@ def cmd_leaderboard(ns: argparse.Namespace) -> int:
     )
     print(f"leaderboard -> {board_path}")
     return 0
+
+
+def cmd_baseline_show(ns: argparse.Namespace) -> int:
+    data = show_baseline(_repo_root(), ns.task_set, ns.solver)
+    if data is None:
+        print(f"no baseline recorded for (task_set={ns.task_set}, solver={ns.solver})")
+        return 1
+    print(json.dumps(data, indent=2))
+    return 0
+
+
+def cmd_baseline_promote(ns: argparse.Namespace) -> int:
+    payload = json.loads(Path(ns.run).read_text(encoding="utf-8"))
+    interactive = sys.stdin.isatty()
+
+    def _confirm() -> bool:
+        ans = input(
+            f"Promote {ns.run} as baseline for (task_set={ns.task_set}, solver={ns.solver})? [y/N] "
+        )
+        return ans.strip().lower() in ("y", "yes")
+
+    try:
+        path = promote_baseline(
+            _repo_root(), ns.task_set, ns.solver, payload,
+            interactive=interactive, confirm=_confirm,
+        )
+    except PromotionDenied as exc:
+        print(f"REFUSED: {exc}", file=sys.stderr)
+        return 2
+    print(f"baseline promoted -> {path}")
+    print("remember to `git add baselines/ && git commit` so the promotion is auditable.")
+    return 0
+
+
+def cmd_gate(ns: argparse.Namespace) -> int:
+    baseline = show_baseline(_repo_root(), ns.task_set, ns.solver)  # read-only
+    if baseline is None:
+        print(f"no baseline for (task_set={ns.task_set}, solver={ns.solver}); cannot gate", file=sys.stderr)
+        return 2
+    _, _, cand_metrics = _load_payload(ns.run)
+    cond = ns.condition.upper()
+    base_m = baseline["metrics"].get(cond)
+    cand_m = cand_metrics.get(cond)
+    if base_m is None or cand_m is None:
+        print(f"condition {cond} missing in baseline or candidate", file=sys.stderr)
+        return 2
+    g = evaluate_gate(base_m, cand_m, reproducible=True)
+    verdict = "ACCEPTED" if g.accepted else "REJECTED"
+    print(f"gate [{cond}] {verdict}  Δcomposite={g.composite_delta:+.3f}  cost_ratio={g.cost_ratio:.2f}")
+    for r in g.reasons:
+        print(f"  - {r}")
+    return 0 if g.accepted else 1
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -159,6 +214,25 @@ def build_parser() -> argparse.ArgumentParser:
     lb.add_argument("--from", dest="from_", required=True, help="results JSON path")
     lb.add_argument("--leaderboard", default=None, help="leaderboard.md output path")
     lb.set_defaults(func=cmd_leaderboard)
+
+    bl = sub.add_parser("baseline", help="baseline registry (show is read-only; promote is human-only)")
+    blsub = bl.add_subparsers(dest="baseline_cmd", required=True)
+    bls = blsub.add_parser("show", help="print the recorded baseline (read-only)")
+    bls.add_argument("--solver", required=True)
+    bls.add_argument("--task-set", dest="task_set", required=True)
+    bls.set_defaults(func=cmd_baseline_show)
+    blp = blsub.add_parser("promote", help="record a run as the baseline (HUMAN-ONLY, needs a TTY)")
+    blp.add_argument("run", help="results JSON to promote")
+    blp.add_argument("--solver", required=True)
+    blp.add_argument("--task-set", dest="task_set", required=True)
+    blp.set_defaults(func=cmd_baseline_promote)
+
+    gt = sub.add_parser("gate", help="compare a candidate run to the recorded baseline (read-only)")
+    gt.add_argument("run", help="candidate results JSON")
+    gt.add_argument("--solver", required=True)
+    gt.add_argument("--task-set", dest="task_set", required=True)
+    gt.add_argument("--condition", default="E", help="condition to gate on (default: E)")
+    gt.set_defaults(func=cmd_gate)
     return p
 
 

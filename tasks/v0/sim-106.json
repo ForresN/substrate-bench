@@ -1,0 +1,25 @@
+{
+  "id": "sim-106",
+  "category": "simulation",
+  "prompt": "A projectile is launched at 55 m/s at 45 degrees into an 8 m/s horizontal headwind, with quadratic drag relative to the air a_drag = c*|v_rel|*v_rel, c = 0.01 per metre, g = 9.81. What horizontal range (m) does it reach before landing?",
+  "gold_substrate": [
+    "simulation"
+  ],
+  "checker": {
+    "type": "numeric_tol",
+    "reference_impl": "projectile_drag",
+    "params": {
+      "v0": 55.0,
+      "angle_deg": 45.0,
+      "drag": 0.01,
+      "g": 9.81,
+      "dt": 0.0005,
+      "wind": -8.0
+    },
+    "reference": 74.826213,
+    "tol": 0.5
+  },
+  "difficulty": 3,
+  "rationale": "Drag relative to moving air; firmly a simulation.",
+  "provenance": "reference"
+}

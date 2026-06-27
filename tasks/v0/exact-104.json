@@ -1,0 +1,20 @@
+{
+  "id": "exact-104",
+  "category": "exact_computation",
+  "prompt": "How many distinct 5-card hands can be dealt from a standard 52-card deck?",
+  "gold_substrate": [
+    "exact_computation"
+  ],
+  "checker": {
+    "type": "numeric_exact",
+    "reference_impl": "combinations",
+    "params": {
+      "n": 52,
+      "k": 5
+    },
+    "answer": 2598960
+  },
+  "difficulty": 2,
+  "rationale": "Binomial coefficient C(52,5).",
+  "provenance": "reference"
+}

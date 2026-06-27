@@ -1,0 +1,19 @@
+{
+  "id": "lang-104",
+  "category": "language",
+  "prompt": "Does the word 'bank' mean the same thing in these two sentences? (1) \"She sat on the river bank.\" (2) \"He deposited his paycheck at the bank.\" Answer same or different.",
+  "gold_substrate": [
+    "language"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "different",
+    "labels": [
+      "same",
+      "different"
+    ]
+  },
+  "difficulty": 2,
+  "rationale": "Word-in-context sense disambiguation.",
+  "provenance": "human_review"
+}

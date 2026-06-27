@@ -127,3 +127,59 @@ def gridworld_validate(
     if require_optimal and len(moves) != gridworld_optimal_length(grid, start, goal):
         return False
     return True
+
+
+# --------------------------------------------------------------------------- #
+# Water-jug (die-hard) problem -- BFS over (a, b) jug states
+# --------------------------------------------------------------------------- #
+_JUG_ACTIONS = ("fill A", "fill B", "empty A", "empty B", "pour A->B", "pour B->A")
+
+
+def _jug_apply(a: int, b: int, cap_a: int, cap_b: int, action: str):
+    if action == "fill A":
+        return cap_a, b
+    if action == "fill B":
+        return a, cap_b
+    if action == "empty A":
+        return 0, b
+    if action == "empty B":
+        return a, 0
+    if action == "pour A->B":
+        amt = min(a, cap_b - b)
+        return a - amt, b + amt
+    if action == "pour B->A":
+        amt = min(b, cap_a - a)
+        return a + amt, b - amt
+    raise ValueError(f"unknown jug action {action!r}")
+
+
+def waterjug_solve(cap_a: int, cap_b: int, target: int) -> List[str]:
+    """BFS shortest action sequence that leaves `target` litres in either jug."""
+    start = (0, 0)
+    seen = {start}
+    q = deque([(start, [])])
+    while q:
+        (a, b), path = q.popleft()
+        if a == target or b == target:
+            return path
+        for action in _JUG_ACTIONS:
+            ns = _jug_apply(a, b, cap_a, cap_b, action)
+            if ns not in seen:
+                seen.add(ns)
+                q.append((ns, path + [action]))
+    raise ValueError("target unreachable")
+
+
+def waterjug_validate(
+    cap_a: int, cap_b: int, target: int, actions: Sequence[str], require_optimal: bool = True
+) -> bool:
+    a, b = 0, 0
+    for action in actions:
+        if action not in _JUG_ACTIONS:
+            return False
+        a, b = _jug_apply(a, b, cap_a, cap_b, action)
+    if not (a == target or b == target):
+        return False
+    if require_optimal and len(actions) != len(waterjug_solve(cap_a, cap_b, target)):
+        return False
+    return True

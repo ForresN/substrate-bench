@@ -1,0 +1,21 @@
+{
+  "id": "exact-103",
+  "category": "exact_computation",
+  "prompt": "What is 7 raised to the power 222, modulo 13?",
+  "gold_substrate": [
+    "exact_computation"
+  ],
+  "checker": {
+    "type": "numeric_exact",
+    "reference_impl": "modexp",
+    "params": {
+      "base": 7,
+      "exp": 222,
+      "mod": 13
+    },
+    "answer": 12
+  },
+  "difficulty": 2,
+  "rationale": "Modular exponentiation; text continuation flubs.",
+  "provenance": "reference"
+}

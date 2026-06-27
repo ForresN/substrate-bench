@@ -1,7 +1,7 @@
 {
   "config": {
     "task_set": "v0",
-    "n_tasks": 10,
+    "n_tasks": 46,
     "conditions": [
       "A",
       "B",
@@ -26,75 +26,83 @@
   },
   "metrics": {
     "A": {
-      "n": 10,
-      "task_accuracy": 0.1,
-      "substrate_selection_accuracy": 0.2,
-      "composite": 0.14,
-      "mean_cost": 0.0007878,
-      "total_cost": 0.007878,
+      "n": 46,
+      "task_accuracy": 0.10869565217391304,
+      "substrate_selection_accuracy": 0.15217391304347827,
+      "composite": 0.12608695652173912,
+      "mean_cost": 0.0007376086956521739,
+      "total_cost": 0.03393,
       "mean_latency_s": 0.232,
-      "cost_adjusted_accuracy": 126.93577050012695,
+      "cost_adjusted_accuracy": 147.36221632773356,
       "verified_rate": 0.0,
+      "audit_pass_rate": 1.0,
+      "code_execution_rate": 0.0,
       "switch_rate": 0.0,
       "failure_modes": {
-        "none": 1,
-        "wrong_substrate": 8,
-        "right_substrate_bad_execution": 1,
+        "none": 5,
+        "wrong_substrate": 36,
+        "right_substrate_bad_execution": 5,
         "no_verification": 0,
         "gave_up": 0
       }
     },
     "B": {
-      "n": 10,
-      "task_accuracy": 0.2,
-      "substrate_selection_accuracy": 0.2,
-      "composite": 0.2,
-      "mean_cost": 0.0031878,
-      "total_cost": 0.031878000000000004,
+      "n": 46,
+      "task_accuracy": 0.32608695652173914,
+      "substrate_selection_accuracy": 0.15217391304347827,
+      "composite": 0.2565217391304348,
+      "mean_cost": 0.003137608695652174,
+      "total_cost": 0.14432999999999999,
       "mean_latency_s": 0.36,
-      "cost_adjusted_accuracy": 62.739193173975785,
+      "cost_adjusted_accuracy": 103.92849719393058,
       "verified_rate": 0.0,
+      "audit_pass_rate": 1.0,
+      "code_execution_rate": 0.0,
       "switch_rate": 0.0,
       "failure_modes": {
-        "none": 2,
-        "wrong_substrate": 8,
+        "none": 15,
+        "wrong_substrate": 31,
         "right_substrate_bad_execution": 0,
         "no_verification": 0,
         "gave_up": 0
       }
     },
     "C": {
-      "n": 10,
-      "task_accuracy": 0.5,
-      "substrate_selection_accuracy": 0.5,
-      "composite": 0.5,
-      "mean_cost": 0.0011378,
-      "total_cost": 0.011378000000000001,
-      "mean_latency_s": 0.524,
-      "cost_adjusted_accuracy": 439.4445420987871,
+      "n": 46,
+      "task_accuracy": 0.2608695652173913,
+      "substrate_selection_accuracy": 0.2608695652173913,
+      "composite": 0.2608695652173913,
+      "mean_cost": 0.001237608695652174,
+      "total_cost": 0.05693,
+      "mean_latency_s": 0.532,
+      "cost_adjusted_accuracy": 210.78517477604075,
       "verified_rate": 0.0,
+      "audit_pass_rate": 1.0,
+      "code_execution_rate": 1.0,
       "switch_rate": null,
       "failure_modes": {
-        "none": 5,
-        "wrong_substrate": 5,
+        "none": 12,
+        "wrong_substrate": 34,
         "right_substrate_bad_execution": 0,
         "no_verification": 0,
         "gave_up": 0
       }
     },
     "D": {
-      "n": 10,
-      "task_accuracy": 0.9,
-      "substrate_selection_accuracy": 0.9,
-      "composite": 0.9000000000000001,
-      "mean_cost": 0.0017528,
-      "total_cost": 0.017528000000000002,
-      "mean_latency_s": 0.4748,
-      "cost_adjusted_accuracy": 513.4641716111364,
+      "n": 46,
+      "task_accuracy": 0.9782608695652174,
+      "substrate_selection_accuracy": 0.9782608695652174,
+      "composite": 0.9782608695652173,
+      "mean_cost": 0.003913695652173913,
+      "total_cost": 0.18003,
+      "mean_latency_s": 0.5796521739130435,
+      "cost_adjusted_accuracy": 249.95834027662056,
       "verified_rate": 0.0,
+      "audit_pass_rate": 1.0,
+      "code_execution_rate": 0.6521739130434783,
       "switch_rate": 0.0,
       "failure_modes": {
-        "none": 9,
+        "none": 45,
         "wrong_substrate": 1,
         "right_substrate_bad_execution": 0,
         "no_verification": 0,
@@ -102,18 +110,20 @@
       }
     },
     "E": {
-      "n": 10,
+      "n": 46,
       "task_accuracy": 1.0,
       "substrate_selection_accuracy": 1.0,
       "composite": 1.0,
-      "mean_cost": 0.0026555,
-      "total_cost": 0.026555,
-      "mean_latency_s": 0.7632,
-      "cost_adjusted_accuracy": 376.5769158350593,
+      "mean_cost": 0.004621934782608696,
+      "total_cost": 0.212609,
+      "mean_latency_s": 0.7621739130434783,
+      "cost_adjusted_accuracy": 216.35960848317802,
       "verified_rate": 1.0,
+      "audit_pass_rate": 1.0,
+      "code_execution_rate": 0.6739130434782609,
       "switch_rate": 1.0,
       "failure_modes": {
-        "none": 10,
+        "none": 46,
         "wrong_substrate": 0,
         "right_substrate_bad_execution": 0,
         "no_verification": 0,
@@ -127,13 +137,17 @@
         "task_id": "exact-001",
         "category": "exact_computation",
         "condition": "A",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "code"
+          "exact_computation"
         ],
         "answer": 41576439,
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.000699,
         "latency_s": 0.232,
         "verified": false,
@@ -145,14 +159,18 @@
         "task_id": "exact-002",
         "category": "exact_computation",
         "condition": "A",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "code",
+          "exact_computation",
           "verify"
         ],
         "answer": 1,
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.000789,
         "latency_s": 0.232,
         "verified": false,
@@ -161,16 +179,130 @@
         "difficulty": 1
       },
       {
+        "task_id": "exact-101",
+        "category": "exact_computation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 20,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000639,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "exact-102",
+        "category": "exact_computation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 167,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000762,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "exact-103",
+        "category": "exact_computation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 11,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000639,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-104",
+        "category": "exact_computation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 2598959,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000651,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-105",
+        "category": "exact_computation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 375,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000672,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
         "task_id": "lang-001",
         "category": "language",
         "condition": "A",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "language"
         ],
         "answer": "positive",
         "answer_correct": true,
         "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.000747,
         "latency_s": 0.232,
         "verified": false,
@@ -179,16 +311,152 @@
         "difficulty": 1
       },
       {
+        "task_id": "lang-101",
+        "category": "language",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00069,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "lang-102",
+        "category": "language",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "positive",
+        "answer_correct": false,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000699,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "right_substrate_bad_execution",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-103",
+        "category": "language",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "entailment",
+        "answer_correct": false,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000726,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "right_substrate_bad_execution",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-104",
+        "category": "language",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "same",
+        "answer_correct": false,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000723,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "right_substrate_bad_execution",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-105",
+        "category": "language",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "positive",
+        "answer_correct": false,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000726,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "right_substrate_bad_execution",
+        "difficulty": 3
+      },
+      {
+        "task_id": "lang-106",
+        "category": "language",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "a",
+        "answer_correct": false,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000735,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "right_substrate_bad_execution",
+        "difficulty": 3
+      },
+      {
         "task_id": "meta-001",
         "category": "meta_cognition",
         "condition": "A",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "code"
+          "exact_computation"
         ],
         "answer": 14,
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.000747,
         "latency_s": 0.232,
         "verified": false,
@@ -200,9 +468,10 @@
         "task_id": "rule-001",
         "category": "hidden_rule",
         "condition": "A",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "code",
           "search"
         ],
         "answer": [
@@ -224,6 +493,8 @@
         ],
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.00084,
         "latency_s": 0.232,
         "verified": false,
@@ -235,13 +506,17 @@
         "task_id": "search-001",
         "category": "search",
         "condition": "A",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "search"
         ],
         "answer": [],
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.000825,
         "latency_s": 0.232,
         "verified": false,
@@ -253,13 +528,17 @@
         "task_id": "search-002",
         "category": "search",
         "condition": "A",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "search"
         ],
         "answer": [],
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.000864,
         "latency_s": 0.232,
         "verified": false,
@@ -268,16 +547,130 @@
         "difficulty": 2
       },
       {
+        "task_id": "search-101",
+        "category": "search",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000714,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "search-102",
+        "category": "search",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000768,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "search-103",
+        "category": "search",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000768,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "search-104",
+        "category": "search",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000768,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "search-105",
+        "category": "search",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000726,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
         "task_id": "sim-001",
         "category": "simulation",
         "condition": "A",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "simulation"
         ],
         "answer": 250.9703753853741,
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.000816,
         "latency_s": 0.232,
         "verified": false,
@@ -289,14 +682,18 @@
         "task_id": "sim-002",
         "category": "simulation",
         "condition": "A",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "simulation",
-          "code"
+          "exact_computation"
         ],
         "answer": 37.619111,
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.000756,
         "latency_s": 0.232,
         "verified": false,
@@ -305,22 +702,469 @@
         "difficulty": 2
       },
       {
+        "task_id": "sim-101",
+        "category": "simulation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 16.657166,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000675,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "sim-102",
+        "category": "simulation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 45.487177,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000726,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "sim-103",
+        "category": "simulation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 8.191829,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000702,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-104",
+        "category": "simulation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 469.3673641030531,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000729,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "sim-105",
+        "category": "simulation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 344.84132872877376,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000729,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "sim-106",
+        "category": "simulation",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 308.35881753312947,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000768,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
         "task_id": "social-001",
         "category": "social",
         "condition": "A",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "language"
+          "social"
         ],
         "answer": "box",
         "answer_correct": false,
-        "substrate_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.000795,
         "latency_s": 0.232,
         "verified": false,
         "self_corrected": false,
-        "failure_mode": "right_substrate_bad_execution",
+        "failure_mode": "wrong_substrate",
         "difficulty": 2
+      },
+      {
+        "task_id": "social-101",
+        "category": "social",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "drawer",
+        "answer_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000753,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-102",
+        "category": "social",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "happy",
+        "answer_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000714,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-103",
+        "category": "social",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "annoyed",
+        "answer_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000717,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-104",
+        "category": "social",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "green",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000804,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-105",
+        "category": "social",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "no",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000747,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-106",
+        "category": "social",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "garden",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000753,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "social-107",
+        "category": "social",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "deliberate",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000792,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "verify-101",
+        "category": "verify",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000804,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "verify-102",
+        "category": "verify",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000669,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "verify-103",
+        "category": "verify",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000729,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-104",
+        "category": "verify",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "true",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000657,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-105",
+        "category": "verify",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.000738,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-106",
+        "category": "verify",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00075,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "verify-107",
+        "category": "verify",
+        "condition": "A",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00069,
+        "latency_s": 0.232,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
       }
     ],
     "B": [
@@ -328,13 +1172,17 @@
         "task_id": "exact-001",
         "category": "exact_computation",
         "condition": "B",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "code"
+          "exact_computation"
         ],
         "answer": 41576439,
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.003099,
         "latency_s": 0.36,
         "verified": false,
@@ -346,14 +1194,18 @@
         "task_id": "exact-002",
         "category": "exact_computation",
         "condition": "B",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "code",
+          "exact_computation",
           "verify"
         ],
         "answer": 1,
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.003189,
         "latency_s": 0.36,
         "verified": false,
@@ -362,16 +1214,130 @@
         "difficulty": 1
       },
       {
+        "task_id": "exact-101",
+        "category": "exact_computation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 20,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003039,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "exact-102",
+        "category": "exact_computation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 167,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003162,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "exact-103",
+        "category": "exact_computation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 11,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003039,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-104",
+        "category": "exact_computation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 2598959,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003051,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-105",
+        "category": "exact_computation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 375,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003072,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
         "task_id": "lang-001",
         "category": "language",
         "condition": "B",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "language"
         ],
         "answer": "positive",
         "answer_correct": true,
         "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.003147,
         "latency_s": 0.36,
         "verified": false,
@@ -380,16 +1346,152 @@
         "difficulty": 1
       },
       {
+        "task_id": "lang-101",
+        "category": "language",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00309,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "lang-102",
+        "category": "language",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003099,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-103",
+        "category": "language",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "contradiction",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003126,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-104",
+        "category": "language",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "different",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003123,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-105",
+        "category": "language",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003126,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "lang-106",
+        "category": "language",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "b",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003135,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
         "task_id": "meta-001",
         "category": "meta_cognition",
         "condition": "B",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "code"
+          "exact_computation"
         ],
         "answer": 14,
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.003147,
         "latency_s": 0.36,
         "verified": false,
@@ -401,9 +1503,10 @@
         "task_id": "rule-001",
         "category": "hidden_rule",
         "condition": "B",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "code",
           "search"
         ],
         "answer": [
@@ -425,6 +1528,8 @@
         ],
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.00324,
         "latency_s": 0.36,
         "verified": false,
@@ -436,13 +1541,17 @@
         "task_id": "search-001",
         "category": "search",
         "condition": "B",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "search"
         ],
         "answer": [],
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.003225,
         "latency_s": 0.36,
         "verified": false,
@@ -454,13 +1563,17 @@
         "task_id": "search-002",
         "category": "search",
         "condition": "B",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "search"
         ],
         "answer": [],
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.003264,
         "latency_s": 0.36,
         "verified": false,
@@ -469,16 +1582,130 @@
         "difficulty": 2
       },
       {
+        "task_id": "search-101",
+        "category": "search",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003114,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "search-102",
+        "category": "search",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003168,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "search-103",
+        "category": "search",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003168,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "search-104",
+        "category": "search",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003168,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "search-105",
+        "category": "search",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003126,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
         "task_id": "sim-001",
         "category": "simulation",
         "condition": "B",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "simulation"
         ],
         "answer": 250.9703753853741,
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.003216,
         "latency_s": 0.36,
         "verified": false,
@@ -490,14 +1717,18 @@
         "task_id": "sim-002",
         "category": "simulation",
         "condition": "B",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "simulation",
-          "code"
+          "exact_computation"
         ],
         "answer": 37.619111,
         "answer_correct": false,
         "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.003156,
         "latency_s": 0.36,
         "verified": false,
@@ -506,22 +1737,469 @@
         "difficulty": 2
       },
       {
+        "task_id": "sim-101",
+        "category": "simulation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 16.657166,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003075,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "sim-102",
+        "category": "simulation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 45.487177,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003126,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "sim-103",
+        "category": "simulation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 8.191829,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003102,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-104",
+        "category": "simulation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 469.3673641030531,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003129,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "sim-105",
+        "category": "simulation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 344.84132872877376,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003129,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "sim-106",
+        "category": "simulation",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 308.35881753312947,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003168,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
         "task_id": "social-001",
         "category": "social",
         "condition": "B",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "language"
+          "social"
         ],
         "answer": "basket",
         "answer_correct": true,
-        "substrate_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
         "cost": 0.003195,
         "latency_s": 0.36,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 2
+      },
+      {
+        "task_id": "social-101",
+        "category": "social",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "drawer",
+        "answer_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003153,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-102",
+        "category": "social",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "happy",
+        "answer_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003114,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-103",
+        "category": "social",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "annoyed",
+        "answer_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003117,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-104",
+        "category": "social",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "blue",
+        "answer_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003204,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-105",
+        "category": "social",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "yes",
+        "answer_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003147,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-106",
+        "category": "social",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "kitchen",
+        "answer_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003153,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "social-107",
+        "category": "social",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "mistake",
+        "answer_correct": true,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003192,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "verify-101",
+        "category": "verify",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003204,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "verify-102",
+        "category": "verify",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003069,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "verify-103",
+        "category": "verify",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003129,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-104",
+        "category": "verify",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "true",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003057,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-105",
+        "category": "verify",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003138,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-106",
+        "category": "verify",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00315,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "verify-107",
+        "category": "verify",
+        "condition": "B",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00309,
+        "latency_s": 0.36,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
       }
     ],
     "C": [
@@ -529,15 +2207,19 @@
         "task_id": "exact-001",
         "category": "exact_computation",
         "condition": "C",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code"
+          "exact_computation"
         ],
         "answer": 41576440,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001049,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001199,
+        "latency_s": 0.532,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
@@ -547,52 +2229,306 @@
         "task_id": "exact-002",
         "category": "exact_computation",
         "condition": "C",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code",
+          "exact_computation",
           "verify"
         ],
         "answer": 2,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001139,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001289,
+        "latency_s": 0.532,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 1
       },
       {
+        "task_id": "exact-101",
+        "category": "exact_computation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 21,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001139,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "exact-102",
+        "category": "exact_computation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 168,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001262,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "exact-103",
+        "category": "exact_computation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 12,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001139,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-104",
+        "category": "exact_computation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 2598960,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001151,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-105",
+        "category": "exact_computation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 376,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001172,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
         "task_id": "lang-001",
         "category": "language",
         "condition": "C",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "language"
         ],
         "answer": "negative",
         "answer_correct": false,
         "substrate_correct": false,
-        "cost": 0.001097,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001247,
+        "latency_s": 0.532,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "wrong_substrate",
         "difficulty": 1
       },
       {
+        "task_id": "lang-101",
+        "category": "language",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "positive",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00119,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "lang-102",
+        "category": "language",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "positive",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001199,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-103",
+        "category": "language",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "entailment",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001226,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-104",
+        "category": "language",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "same",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001223,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-105",
+        "category": "language",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "positive",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001226,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "lang-106",
+        "category": "language",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "a",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001235,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
         "task_id": "meta-001",
         "category": "meta_cognition",
         "condition": "C",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code"
+          "exact_computation"
         ],
         "answer": 15,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001097,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001247,
+        "latency_s": 0.532,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
@@ -602,50 +2538,57 @@
         "task_id": "rule-001",
         "category": "hidden_rule",
         "condition": "C",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code",
           "search"
         ],
         "answer": [
           [
-            2,
+            9,
             1,
-            9
+            2
           ],
           [
-            5,
+            3,
             4,
-            3
+            5
           ],
           [
-            8,
+            6,
             7,
-            6
+            8
           ]
         ],
-        "answer_correct": true,
-        "substrate_correct": true,
-        "cost": 0.00119,
-        "latency_s": 0.524,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00134,
+        "latency_s": 0.532,
         "verified": false,
         "self_corrected": false,
-        "failure_mode": "none",
+        "failure_mode": "wrong_substrate",
         "difficulty": 3
       },
       {
         "task_id": "search-001",
         "category": "search",
         "condition": "C",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "search"
         ],
         "answer": [],
         "answer_correct": false,
         "substrate_correct": false,
-        "cost": 0.001175,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001325,
+        "latency_s": 0.532,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "wrong_substrate",
@@ -655,33 +2598,151 @@
         "task_id": "search-002",
         "category": "search",
         "condition": "C",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "search"
         ],
         "answer": [],
         "answer_correct": false,
         "substrate_correct": false,
-        "cost": 0.001214,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001364,
+        "latency_s": 0.532,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "wrong_substrate",
         "difficulty": 2
       },
       {
+        "task_id": "search-101",
+        "category": "search",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001214,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "search-102",
+        "category": "search",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001268,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "search-103",
+        "category": "search",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001268,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "search-104",
+        "category": "search",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001268,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "search-105",
+        "category": "search",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [],
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001226,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
         "task_id": "sim-001",
         "category": "simulation",
         "condition": "C",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "simulation"
         ],
         "answer": 250.9703753853741,
         "answer_correct": false,
         "substrate_correct": false,
-        "cost": 0.001166,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001316,
+        "latency_s": 0.532,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "wrong_substrate",
@@ -691,38 +2752,489 @@
         "task_id": "sim-002",
         "category": "simulation",
         "condition": "C",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "simulation",
-          "code"
+          "exact_computation"
         ],
         "answer": 35.619111,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001106,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001256,
+        "latency_s": 0.532,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 2
       },
       {
+        "task_id": "sim-101",
+        "category": "simulation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 15.157166,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001175,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "sim-102",
+        "category": "simulation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 43.987177,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001226,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "sim-103",
+        "category": "simulation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 6.991829,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001202,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "sim-104",
+        "category": "simulation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 469.3673641030531,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001229,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "sim-105",
+        "category": "simulation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 344.84132872877376,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001229,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "sim-106",
+        "category": "simulation",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 308.35881753312947,
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001268,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
         "task_id": "social-001",
         "category": "social",
         "condition": "C",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "language"
+          "social"
         ],
         "answer": "box",
         "answer_correct": false,
         "substrate_correct": false,
-        "cost": 0.001145,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001295,
+        "latency_s": 0.532,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "wrong_substrate",
         "difficulty": 2
+      },
+      {
+        "task_id": "social-101",
+        "category": "social",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "cupboard",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001253,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-102",
+        "category": "social",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "sad",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001214,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-103",
+        "category": "social",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "pleased",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001217,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-104",
+        "category": "social",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "green",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001304,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-105",
+        "category": "social",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "no",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001247,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-106",
+        "category": "social",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "garden",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001253,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "social-107",
+        "category": "social",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "deliberate",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001292,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "verify-101",
+        "category": "verify",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001304,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "verify-102",
+        "category": "verify",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001169,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 1
+      },
+      {
+        "task_id": "verify-103",
+        "category": "verify",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001229,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-104",
+        "category": "verify",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "true",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001157,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-105",
+        "category": "verify",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.001238,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-106",
+        "category": "verify",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00125,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
+      },
+      {
+        "task_id": "verify-107",
+        "category": "verify",
+        "condition": "C",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": false,
+        "substrate_correct": false,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00119,
+        "latency_s": 0.532,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "wrong_substrate",
+        "difficulty": 3
       }
     ],
     "D": [
@@ -730,15 +3242,19 @@
         "task_id": "exact-001",
         "category": "exact_computation",
         "condition": "D",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code"
+          "exact_computation"
         ],
         "answer": 41576440,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001049,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004049,
+        "latency_s": 0.684,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
@@ -748,52 +3264,306 @@
         "task_id": "exact-002",
         "category": "exact_computation",
         "condition": "D",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code",
+          "exact_computation",
           "verify"
         ],
         "answer": 2,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001139,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004139,
+        "latency_s": 0.684,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 1
       },
       {
+        "task_id": "exact-101",
+        "category": "exact_computation",
+        "condition": "D",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 21,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003989,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "exact-102",
+        "category": "exact_computation",
+        "condition": "D",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 168,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004112,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "exact-103",
+        "category": "exact_computation",
+        "condition": "D",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 12,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003989,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-104",
+        "category": "exact_computation",
+        "condition": "D",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 2598960,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004001,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-105",
+        "category": "exact_computation",
+        "condition": "D",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 376,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004022,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
         "task_id": "lang-001",
         "category": "language",
         "condition": "D",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "language"
         ],
         "answer": "positive",
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.003147,
-        "latency_s": 0.36,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003597,
+        "latency_s": 0.384,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 1
       },
       {
+        "task_id": "lang-101",
+        "category": "language",
+        "condition": "D",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00354,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "lang-102",
+        "category": "language",
+        "condition": "D",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003549,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-103",
+        "category": "language",
+        "condition": "D",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "contradiction",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003576,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-104",
+        "category": "language",
+        "condition": "D",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "different",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003573,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-105",
+        "category": "language",
+        "condition": "D",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003576,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "lang-106",
+        "category": "language",
+        "condition": "D",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "b",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003585,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
         "task_id": "meta-001",
         "category": "meta_cognition",
         "condition": "D",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
-          "code"
+          "exact_computation"
         ],
         "answer": 14,
         "answer_correct": false,
         "substrate_correct": false,
-        "cost": 0.003147,
-        "latency_s": 0.36,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003597,
+        "latency_s": 0.384,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "wrong_substrate",
@@ -803,9 +3573,10 @@
         "task_id": "rule-001",
         "category": "hidden_rule",
         "condition": "D",
-        "chosen_substrate": "code",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code",
           "search"
         ],
         "answer": [
@@ -827,8 +3598,10 @@
         ],
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.00119,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00419,
+        "latency_s": 0.684,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
@@ -838,7 +3611,9 @@
         "task_id": "search-001",
         "category": "search",
         "condition": "D",
-        "chosen_substrate": "search",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "search"
         ],
@@ -906,8 +3681,10 @@
         ],
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001175,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004175,
+        "latency_s": 0.684,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
@@ -917,7 +3694,9 @@
         "task_id": "search-002",
         "category": "search",
         "condition": "D",
-        "chosen_substrate": "search",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "search"
         ],
@@ -933,26 +3712,319 @@
         ],
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001214,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004214,
+        "latency_s": 0.684,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 2
       },
       {
+        "task_id": "search-101",
+        "category": "search",
+        "condition": "D",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          "D",
+          "D",
+          "R",
+          "R"
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004064,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "search-102",
+        "category": "search",
+        "condition": "D",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004118,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "search-103",
+        "category": "search",
+        "condition": "D",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          "fill A",
+          "pour A->B",
+          "empty B",
+          "pour A->B",
+          "fill A",
+          "pour A->B"
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004118,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "search-104",
+        "category": "search",
+        "condition": "D",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004118,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "search-105",
+        "category": "search",
+        "condition": "D",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "R",
+          "R",
+          "R",
+          "R",
+          "R"
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004076,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
         "task_id": "sim-001",
         "category": "simulation",
         "condition": "D",
-        "chosen_substrate": "simulation",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "simulation"
         ],
         "answer": 99.321797,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001166,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004166,
+        "latency_s": 0.684,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
@@ -962,38 +4034,489 @@
         "task_id": "sim-002",
         "category": "simulation",
         "condition": "D",
-        "chosen_substrate": "simulation",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "simulation",
-          "code"
+          "exact_computation"
         ],
         "answer": 35.619111,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001106,
-        "latency_s": 0.524,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004106,
+        "latency_s": 0.684,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 2
       },
       {
-        "task_id": "social-001",
-        "category": "social",
+        "task_id": "sim-101",
+        "category": "simulation",
         "condition": "D",
-        "chosen_substrate": "language",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "language"
+          "simulation",
+          "exact_computation"
         ],
-        "answer": "basket",
+        "answer": 15.157166,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.003195,
-        "latency_s": 0.36,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004025,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "sim-102",
+        "category": "simulation",
+        "condition": "D",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 43.987177,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004076,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "sim-103",
+        "category": "simulation",
+        "condition": "D",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 6.991829,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004052,
+        "latency_s": 0.684,
         "verified": false,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 2
+      },
+      {
+        "task_id": "sim-104",
+        "category": "simulation",
+        "condition": "D",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 151.675975,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004079,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "sim-105",
+        "category": "simulation",
+        "condition": "D",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 90.803288,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004079,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "sim-106",
+        "category": "simulation",
+        "condition": "D",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 74.826213,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004118,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "social-001",
+        "category": "social",
+        "condition": "D",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "basket",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003645,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-101",
+        "category": "social",
+        "condition": "D",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "drawer",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003603,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-102",
+        "category": "social",
+        "condition": "D",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "happy",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003564,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-103",
+        "category": "social",
+        "condition": "D",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "annoyed",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003567,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-104",
+        "category": "social",
+        "condition": "D",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "blue",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003654,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-105",
+        "category": "social",
+        "condition": "D",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "yes",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003597,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-106",
+        "category": "social",
+        "condition": "D",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "kitchen",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003603,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "social-107",
+        "category": "social",
+        "condition": "D",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "mistake",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003642,
+        "latency_s": 0.384,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "verify-101",
+        "category": "verify",
+        "condition": "D",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004154,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "verify-102",
+        "category": "verify",
+        "condition": "D",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004019,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "verify-103",
+        "category": "verify",
+        "condition": "D",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004079,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-104",
+        "category": "verify",
+        "condition": "D",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "false",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004007,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-105",
+        "category": "verify",
+        "condition": "D",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004088,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-106",
+        "category": "verify",
+        "condition": "D",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.0041,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "verify-107",
+        "category": "verify",
+        "condition": "D",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00404,
+        "latency_s": 0.684,
+        "verified": false,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
       }
     ],
     "E": [
@@ -1001,15 +4524,19 @@
         "task_id": "exact-001",
         "category": "exact_computation",
         "condition": "E",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code"
+          "exact_computation"
         ],
         "answer": 41576440,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001897,
-        "latency_s": 0.84,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004897,
+        "latency_s": 1.0,
         "verified": true,
         "self_corrected": false,
         "failure_mode": "none",
@@ -1019,52 +4546,306 @@
         "task_id": "exact-002",
         "category": "exact_computation",
         "condition": "E",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code",
+          "exact_computation",
           "verify"
         ],
         "answer": 2,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.002032,
-        "latency_s": 0.84,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.005032,
+        "latency_s": 1.0,
         "verified": true,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 1
       },
       {
+        "task_id": "exact-101",
+        "category": "exact_computation",
+        "condition": "E",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 21,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004807,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "exact-102",
+        "category": "exact_computation",
+        "condition": "E",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 168,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004993,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "exact-103",
+        "category": "exact_computation",
+        "condition": "E",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 12,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004807,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-104",
+        "category": "exact_computation",
+        "condition": "E",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 2598960,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004825,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "exact-105",
+        "category": "exact_computation",
+        "condition": "E",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "exact_computation"
+        ],
+        "answer": 376,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004858,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
         "task_id": "lang-001",
         "category": "language",
         "condition": "E",
-        "chosen_substrate": "language",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
         "gold_substrate": [
           "language"
         ],
         "answer": "positive",
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.003519,
-        "latency_s": 0.376,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003969,
+        "latency_s": 0.4,
         "verified": true,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 1
       },
       {
+        "task_id": "lang-101",
+        "category": "language",
+        "condition": "E",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003885,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "lang-102",
+        "category": "language",
+        "condition": "E",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003897,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-103",
+        "category": "language",
+        "condition": "E",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "contradiction",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003939,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-104",
+        "category": "language",
+        "condition": "E",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "different",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003933,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "lang-105",
+        "category": "language",
+        "condition": "E",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "negative",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003939,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "lang-106",
+        "category": "language",
+        "condition": "E",
+        "declared_strategy": "language",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "language"
+        ],
+        "answer": "b",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003951,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
         "task_id": "meta-001",
         "category": "meta_cognition",
         "condition": "E",
-        "chosen_substrate": "code",
+        "declared_strategy": "exact_computation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code"
+          "exact_computation"
         ],
         "answer": 15,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.005116,
-        "latency_s": 1.0,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.008116,
+        "latency_s": 1.16,
         "verified": true,
         "self_corrected": true,
         "failure_mode": "none",
@@ -1074,9 +4855,10 @@
         "task_id": "rule-001",
         "category": "hidden_rule",
         "condition": "E",
-        "chosen_substrate": "code",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "code",
           "search"
         ],
         "answer": [
@@ -1098,8 +4880,10 @@
         ],
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.00211,
-        "latency_s": 0.84,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.00511,
+        "latency_s": 1.0,
         "verified": true,
         "self_corrected": false,
         "failure_mode": "none",
@@ -1109,7 +4893,9 @@
         "task_id": "search-001",
         "category": "search",
         "condition": "E",
-        "chosen_substrate": "search",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "search"
         ],
@@ -1177,8 +4963,10 @@
         ],
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.002086,
-        "latency_s": 0.84,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.005086,
+        "latency_s": 1.0,
         "verified": true,
         "self_corrected": false,
         "failure_mode": "none",
@@ -1188,7 +4976,9 @@
         "task_id": "search-002",
         "category": "search",
         "condition": "E",
-        "chosen_substrate": "search",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "search"
         ],
@@ -1204,26 +4994,319 @@
         ],
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.002146,
-        "latency_s": 0.84,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.005146,
+        "latency_s": 1.0,
         "verified": true,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 2
       },
       {
+        "task_id": "search-101",
+        "category": "search",
+        "condition": "E",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          "D",
+          "D",
+          "R",
+          "R"
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004921,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "search-102",
+        "category": "search",
+        "condition": "E",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.005002,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "search-103",
+        "category": "search",
+        "condition": "E",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          "fill A",
+          "pour A->B",
+          "empty B",
+          "pour A->B",
+          "fill A",
+          "pour A->B"
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.005002,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "search-104",
+        "category": "search",
+        "condition": "E",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "C",
+            "A"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "A"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.005002,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "search-105",
+        "category": "search",
+        "condition": "E",
+        "declared_strategy": "search",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "search"
+        ],
+        "answer": [
+          "D",
+          "D",
+          "D",
+          "D",
+          "D",
+          "R",
+          "R",
+          "R",
+          "R",
+          "R"
+        ],
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004939,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
         "task_id": "sim-001",
         "category": "simulation",
         "condition": "E",
-        "chosen_substrate": "simulation",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "simulation"
         ],
         "answer": 99.321797,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.002074,
-        "latency_s": 0.84,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.005074,
+        "latency_s": 1.0,
         "verified": true,
         "self_corrected": false,
         "failure_mode": "none",
@@ -1233,38 +5316,489 @@
         "task_id": "sim-002",
         "category": "simulation",
         "condition": "E",
-        "chosen_substrate": "simulation",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
           "simulation",
-          "code"
+          "exact_computation"
         ],
         "answer": 35.619111,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.001984,
-        "latency_s": 0.84,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004984,
+        "latency_s": 1.0,
         "verified": true,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 2
       },
       {
-        "task_id": "social-001",
-        "category": "social",
+        "task_id": "sim-101",
+        "category": "simulation",
         "condition": "E",
-        "chosen_substrate": "language",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
         "gold_substrate": [
-          "language"
+          "simulation",
+          "exact_computation"
         ],
-        "answer": "basket",
+        "answer": 15.157166,
         "answer_correct": true,
         "substrate_correct": true,
-        "cost": 0.003591,
-        "latency_s": 0.376,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004861,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "sim-102",
+        "category": "simulation",
+        "condition": "E",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 43.987177,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004939,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "sim-103",
+        "category": "simulation",
+        "condition": "E",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation",
+          "exact_computation"
+        ],
+        "answer": 6.991829,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004903,
+        "latency_s": 1.0,
         "verified": true,
         "self_corrected": false,
         "failure_mode": "none",
         "difficulty": 2
+      },
+      {
+        "task_id": "sim-104",
+        "category": "simulation",
+        "condition": "E",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 151.675975,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004942,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "sim-105",
+        "category": "simulation",
+        "condition": "E",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 90.803288,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004942,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "sim-106",
+        "category": "simulation",
+        "condition": "E",
+        "declared_strategy": "simulation",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "simulation"
+        ],
+        "answer": 74.826213,
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.005002,
+        "latency_s": 1.0,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "social-001",
+        "category": "social",
+        "condition": "E",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "basket",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004041,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-101",
+        "category": "social",
+        "condition": "E",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "drawer",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003978,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-102",
+        "category": "social",
+        "condition": "E",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "happy",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003921,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-103",
+        "category": "social",
+        "condition": "E",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "annoyed",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003924,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "social-104",
+        "category": "social",
+        "condition": "E",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "blue",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004056,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-105",
+        "category": "social",
+        "condition": "E",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "yes",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003969,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "social-106",
+        "category": "social",
+        "condition": "E",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "kitchen",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.003978,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "social-107",
+        "category": "social",
+        "condition": "E",
+        "declared_strategy": "social",
+        "executes_code": false,
+        "code_executed": false,
+        "gold_substrate": [
+          "social"
+        ],
+        "answer": "mistake",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004038,
+        "latency_s": 0.4,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "verify-101",
+        "category": "verify",
+        "condition": "E",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004556,
+        "latency_s": 0.7,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "verify-102",
+        "category": "verify",
+        "condition": "E",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004352,
+        "latency_s": 0.7,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 1
+      },
+      {
+        "task_id": "verify-103",
+        "category": "verify",
+        "condition": "E",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004442,
+        "latency_s": 0.7,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-104",
+        "category": "verify",
+        "condition": "E",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "false",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004334,
+        "latency_s": 0.7,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-105",
+        "category": "verify",
+        "condition": "E",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004457,
+        "latency_s": 0.7,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 2
+      },
+      {
+        "task_id": "verify-106",
+        "category": "verify",
+        "condition": "E",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "invalid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004475,
+        "latency_s": 0.7,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
+      },
+      {
+        "task_id": "verify-107",
+        "category": "verify",
+        "condition": "E",
+        "declared_strategy": "verify",
+        "executes_code": true,
+        "code_executed": true,
+        "gold_substrate": [
+          "verify"
+        ],
+        "answer": "valid",
+        "answer_correct": true,
+        "substrate_correct": true,
+        "audit_passed": true,
+        "audit_detail": "ok: execution-medium consistent; skip: structural-audit deferred to v0.2",
+        "cost": 0.004385,
+        "latency_s": 0.7,
+        "verified": true,
+        "self_corrected": false,
+        "failure_mode": "none",
+        "difficulty": 3
       }
     ]
   }

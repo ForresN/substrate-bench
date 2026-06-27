@@ -1,0 +1,21 @@
+{
+  "id": "exact-102",
+  "category": "exact_computation",
+  "prompt": "A display stacks cans in rows: 3 cans in the top row, 5 in the next, 7 in the next, and so on (each row holds 2 more than the row above), for 12 rows total. How many cans are there?",
+  "gold_substrate": [
+    "exact_computation"
+  ],
+  "checker": {
+    "type": "numeric_exact",
+    "reference_impl": "arithmetic_series_sum",
+    "params": {
+      "a": 3,
+      "d": 2,
+      "n": 12
+    },
+    "answer": 168
+  },
+  "difficulty": 1,
+  "rationale": "Arithmetic-series sum.",
+  "provenance": "reference"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "verify-106",
+  "category": "verify",
+  "prompt": "On a 6x6 chessboard, queens are placed one per row at columns [0,2,4,1,3,5] (row 0 has a queen in column 0, etc.). Is this a valid solution where no two queens attack each other? Answer 'valid' or 'invalid'.",
+  "gold_substrate": [
+    "verify"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "labels": [
+      "valid",
+      "invalid"
+    ],
+    "verify_impl": "nqueens",
+    "candidate": {
+      "positions": [
+        0,
+        2,
+        4,
+        1,
+        3,
+        5
+      ],
+      "n": 6
+    },
+    "answer": "invalid"
+  },
+  "difficulty": 3,
+  "rationale": "Verify an n-queens placement.",
+  "provenance": "reference"
+}

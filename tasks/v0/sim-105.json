@@ -1,0 +1,24 @@
+{
+  "id": "sim-105",
+  "category": "simulation",
+  "prompt": "A projectile is launched at 60 m/s at 55 degrees with quadratic drag a_drag = c*|v|*v, c = 0.012 per metre, g = 9.81. What horizontal range (m) does it reach before landing?",
+  "gold_substrate": [
+    "simulation"
+  ],
+  "checker": {
+    "type": "numeric_tol",
+    "reference_impl": "projectile_drag",
+    "params": {
+      "v0": 60.0,
+      "angle_deg": 55.0,
+      "drag": 0.012,
+      "g": 9.81,
+      "dt": 0.0005
+    },
+    "reference": 90.803288,
+    "tol": 0.5
+  },
+  "difficulty": 3,
+  "rationale": "Steeper drag trajectory; no closed form.",
+  "provenance": "reference"
+}

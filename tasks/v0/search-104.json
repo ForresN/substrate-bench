@@ -1,0 +1,21 @@
+{
+  "id": "search-104",
+  "category": "search",
+  "prompt": "Tower of Hanoi with 5 disks on pegs A, B, C (all start on A). Move them all to C, one top disk at a time, never a larger disk on a smaller one. Give the shortest move sequence as [from, to] pairs.",
+  "gold_substrate": [
+    "search"
+  ],
+  "checker": {
+    "type": "sequence_valid",
+    "problem": "hanoi",
+    "n": 5,
+    "source": "A",
+    "target": "C",
+    "aux": "B",
+    "require_optimal": true,
+    "optimal_length": 31
+  },
+  "difficulty": 3,
+  "rationale": "Hanoi n=5: 31 moves, where text continuation degrades.",
+  "provenance": "reference"
+}

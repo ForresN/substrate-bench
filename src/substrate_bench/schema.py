@@ -1,17 +1,20 @@
-"""Task / Result / SolverOutput dataclasses plus JSON load & validation.
+"""Task / RouteDeclaration / SolverOutput / Result dataclasses + JSON validation.
 
 A Task is declarative and seed-stable: the checker block carries everything the
-deterministic scorer needs, so no model is ever consulted during scoring.
+deterministic scorer needs, so no model is ever consulted during scoring. v0.1
+adds the two-axis ontology -- tasks carry a strategy `gold_substrate`; the
+execution medium (`executes_code`) lives on the solver's RouteDeclaration, not
+on the task.
 """
 
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass, field, asdict
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any, List, Optional
 
-from .substrates import SUBSTRATES
+from .substrates import STRATEGIES
 
 VALID_CHECKERS = frozenset(
     {"exact_label", "numeric_exact", "numeric_tol", "sequence_valid", "grid_match"}
@@ -27,21 +30,35 @@ class Task:
     id: str
     category: str
     prompt: str
-    gold_substrate: List[str]
+    gold_substrate: List[str]  # strategy axis (contract §1)
     checker: dict
     difficulty: int
     rationale: str = ""
+    provenance: str = "reference"  # "reference" | "human_review"
 
     def needs_verify(self) -> bool:
         return "verify" in self.gold_substrate
+
+    def primary_strategy(self) -> str:
+        return self.gold_substrate[0]
+
+
+@dataclass
+class RouteDeclaration:
+    """The structured route a solver must emit before answering (contract §2)."""
+
+    strategy: str
+    executes_code: bool
+    rationale: str = ""
 
 
 @dataclass
 class SolverOutput:
     """What a condition harness returns for one task (behaviour, not judgement)."""
 
+    declaration: RouteDeclaration
     answer: Any
-    chosen_substrate: str
+    code_executed: bool = False  # observed: did code actually run
     verified: bool = False
     self_corrected: bool = False
     cost: float = 0.0
@@ -56,11 +73,15 @@ class Result:
     task_id: str
     category: str
     condition: str
-    chosen_substrate: str
+    declared_strategy: str
+    executes_code: bool          # declared
+    code_executed: bool          # observed
     gold_substrate: List[str]
     answer: Any
     answer_correct: bool
     substrate_correct: bool
+    audit_passed: bool
+    audit_detail: str
     cost: float
     latency_s: float
     verified: bool
@@ -88,9 +109,14 @@ def validate_task(obj: dict) -> Task:
     gold = obj["gold_substrate"]
     if not isinstance(gold, list) or not gold:
         raise TaskValidationError(f"{obj['id']}: gold_substrate must be a non-empty list")
-    bad = [s for s in gold if s not in SUBSTRATES]
+    if "code" in gold:
+        raise TaskValidationError(
+            f"{obj['id']}: 'code' is no longer a strategy (contract v0.1 §1). "
+            "Use 'exact_computation' (or 'simulation'/'search') + executes_code."
+        )
+    bad = [s for s in gold if s not in STRATEGIES]
     if bad:
-        raise TaskValidationError(f"{obj['id']}: unknown substrate(s) {bad}")
+        raise TaskValidationError(f"{obj['id']}: unknown strategy/strategies {bad}")
 
     checker = obj["checker"]
     if not isinstance(checker, dict) or "type" not in checker:
@@ -102,6 +128,10 @@ def validate_task(obj: dict) -> Task:
     if not isinstance(diff, int) or not (1 <= diff <= 3):
         raise TaskValidationError(f"{obj['id']}: difficulty must be an int in 1..3")
 
+    provenance = obj.get("provenance", "reference")
+    if provenance not in ("reference", "human_review"):
+        raise TaskValidationError(f"{obj['id']}: provenance must be 'reference' or 'human_review'")
+
     return Task(
         id=obj["id"],
         category=obj["category"],
@@ -110,6 +140,7 @@ def validate_task(obj: dict) -> Task:
         checker=dict(checker),
         difficulty=diff,
         rationale=obj.get("rationale", ""),
+        provenance=provenance,
     )
 
 

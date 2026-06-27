@@ -82,6 +82,8 @@ def aggregate(results: Sequence[Result]) -> Dict[str, Any]:
         "mean_latency_s": mean(r.latency_s for r in results),
         "cost_adjusted_accuracy": (task_acc / mean_cost) if mean_cost > 0 else float("inf"),
         "verified_rate": mean(1.0 if r.verified else 0.0 for r in results),
+        "audit_pass_rate": mean(1.0 if r.audit_passed else 0.0 for r in results),
+        "code_execution_rate": mean(1.0 if r.code_executed else 0.0 for r in results),
         "switch_rate": _switch_rate(results),
         "failure_modes": {m: failure_counts.get(m, 0) for m in FAILURE_MODES},
     }

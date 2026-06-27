@@ -1,0 +1,19 @@
+{
+  "id": "social-107",
+  "category": "social",
+  "prompt": "Priya sees a new coworker take her labeled lunch bag from the office fridge and start eating it. The fridge happens to contain two identical bags, and the coworker started only last week. Was the coworker's action most likely deliberate theft or an honest mistake? Answer deliberate or mistake.",
+  "gold_substrate": [
+    "social"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "mistake",
+    "labels": [
+      "deliberate",
+      "mistake"
+    ]
+  },
+  "difficulty": 3,
+  "rationale": "Intention attribution under exonerating context.",
+  "provenance": "human_review"
+}

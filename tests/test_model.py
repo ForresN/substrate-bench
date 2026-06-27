@@ -1,93 +1,116 @@
-"""The provider seam: best-effort answer parsing + a non-stub Model adapter.
+"""The provider seam (contract §2): the stub emits declarations; a real model
+plugs in via CallableModel and must emit a parseable declaration or fail loudly."""
 
-This proves the package is genuinely provider-agnostic -- a model that is not
-the StubModel plugs in through `CallableModel` and produces checker-passing
-answers, all offline.
-"""
+import json
+
+import pytest
 
 from conftest import TASKS_V0
 from substrate_bench.checkers import run_checker
-from substrate_bench.conditions import Pricing
-from substrate_bench.model import CallableModel, Model, parse_answer
-from substrate_bench.references import gold
-from substrate_bench.runner import run_condition
+from substrate_bench.model import (
+    CallableModel,
+    Model,
+    RouteDeclarationError,
+    StubModel,
+    parse_declaration,
+)
 from substrate_bench.schema import load_tasks
 
 TASKS = {t.id: t for t in load_tasks(TASKS_V0)}
 
 
-# --- parse_answer: one case per checker type ------------------------------- #
-def test_parse_exact_label_from_prose():
-    t = TASKS["lang-001"]
-    assert parse_answer(t, "I think the tone is clearly positive.\nAnswer: positive") == "positive"
+# --- StubModel emits a declaration ---------------------------------------- #
+def test_stub_chooses_and_emits_declaration():
+    m = StubModel()
+    resp = m.solve(TASKS["sim-001"])  # no forced strategy -> emits
+    assert resp.declaration.strategy == "simulation"
+    assert resp.declaration.executes_code is True
+    assert resp.declaration.rationale  # non-empty
 
 
-def test_parse_numeric_exact_ignores_grouping_and_prose():
+def test_stub_honours_forced_declaration():
+    m = StubModel()
+    resp = m.solve(TASKS["lang-001"], force_strategy="exact_computation", force_executes_code=True)
+    assert resp.declaration.strategy == "exact_computation"
+    assert resp.code_executed is True
+
+
+# --- parse_declaration: success + loud failure ---------------------------- #
+def test_parse_declaration_ok():
     t = TASKS["meta-001"]
-    assert parse_answer(t, "It is C(6,2). Answer: 15 handshakes total.") == 15
+    text = '{"strategy": "exact_computation", "executes_code": true, "rationale": "count", "answer": 15}'
+    decl, answer = parse_declaration(t, text)
+    assert decl.strategy == "exact_computation" and decl.executes_code is True
+    assert answer == 15
 
 
-def test_parse_numeric_tol_float():
-    t = TASKS["sim-001"]
-    assert abs(parse_answer(t, "Answer: 99.3 metres") - 99.3) < 1e-9
+def test_parse_declaration_missing_key_raises():
+    t = TASKS["meta-001"]
+    with pytest.raises(RouteDeclarationError):
+        parse_declaration(t, '{"strategy": "exact_computation", "executes_code": true}')  # no answer
 
 
-def test_parse_sequence_json():
-    t = TASKS["search-002"]
-    ans = parse_answer(t, 'Here is the path.\nAnswer: ["D","D","R","R","D","D","R","R"]')
-    assert ans == ["D", "D", "R", "R", "D", "D", "R", "R"]
+def test_parse_declaration_bad_strategy_raises():
+    t = TASKS["meta-001"]
+    with pytest.raises(RouteDeclarationError):
+        parse_declaration(t, '{"strategy": "code", "executes_code": true, "answer": 15}')
 
 
-def test_parse_grid_json():
-    t = TASKS["rule-001"]
-    ans = parse_answer(t, "Answer: [[2,1,9],[5,4,3],[8,7,6]]")
-    assert run_checker(t, ans)
+def test_parse_declaration_no_json_raises():
+    t = TASKS["meta-001"]
+    with pytest.raises(RouteDeclarationError):
+        parse_declaration(t, "I think the answer is 15.")
 
 
-def test_parse_returns_none_on_garbage_numeric():
-    t = TASKS["exact-001"]
-    assert parse_answer(t, "no number here") is None
+def test_parse_declaration_non_bool_executes_code_raises():
+    t = TASKS["meta-001"]
+    with pytest.raises(RouteDeclarationError):
+        parse_declaration(t, '{"strategy": "exact_computation", "executes_code": "yes", "answer": 15}')
 
 
-# --- CallableModel end-to-end --------------------------------------------- #
-def _oracle_complete(canned):
-    """A fake provider: returns a canned 'Answer: ...' line per task substring."""
+# --- CallableModel end-to-end (non-stub, offline) ------------------------- #
+def _emit(decl_by_key):
+    """Fake provider that emits a JSON declaration based on a prompt substring."""
 
     def complete(prompt, cot):
-        for key, text in canned.items():
+        for key, obj in decl_by_key.items():
             if key in prompt:
-                return text, 50, 20
-        return "Answer: unknown", 50, 5
+                return json.dumps(obj), 60, 30
+        return json.dumps({"strategy": "language", "executes_code": False,
+                           "rationale": "fallback", "answer": "unknown"}), 60, 10
 
     return complete
 
 
-def test_callable_model_satisfies_protocol():
-    m = CallableModel(_oracle_complete({}))
-    assert isinstance(m, Model)
-    assert m.name == "callable"
-
-
-def test_callable_model_produces_checker_passing_language_answers():
-    # A provider that answers the linguistic tasks correctly via the parser.
+def test_callable_model_satisfies_protocol_and_emits():
     canned = {
-        "sentiment": "Answer: positive",
-        "Sally": "Answer: basket",
+        "projectile": {"strategy": "simulation", "executes_code": True,
+                       "rationale": "drag, no closed form", "answer": 99.32},
     }
-    model = CallableModel(_oracle_complete(canned), name="oracle")
-    # Condition A routes language tasks to the model; both should pass.
-    results = {r.task_id: r for r in run_condition("A", list(TASKS.values()), model=model)}
-    assert results["lang-001"].answer_correct
-    assert results["social-001"].answer_correct
+    model = CallableModel(_emit(canned), name="oracle")
+    assert isinstance(model, Model)
+    resp = model.solve(TASKS["sim-001"])
+    assert resp.declaration.strategy == "simulation"
+    assert run_checker(TASKS["sim-001"], resp.answer)
 
 
-def test_callable_model_drives_router_condition_offline():
-    """Condition D uses the model only for the language substrate; computational
-    substrates go through references, so a tiny canned model still scores well."""
-    canned = {"sentiment": "Answer: positive", "Sally": "Answer: basket"}
-    model = CallableModel(_oracle_complete(canned), name="oracle")
-    results = {r.task_id: r for r in run_condition("D", list(TASKS.values()), model=model)}
-    # the computational tasks are answered by the references regardless of model
-    assert results["sim-001"].answer_correct
-    assert results["search-001"].answer_correct
-    assert results["lang-001"].answer_correct
+def test_callable_model_observed_code_executed_drives_audit_input():
+    # 4-tuple: the harness reports code did NOT actually run despite the claim.
+    def complete(prompt, cot):
+        obj = {"strategy": "exact_computation", "executes_code": True,
+               "rationale": "x", "answer": 15}
+        return json.dumps(obj), 60, 30, False  # observed code_executed=False
+
+    model = CallableModel(complete, name="liar")
+    resp = model.solve(TASKS["meta-001"])
+    assert resp.declaration.executes_code is True
+    assert resp.code_executed is False  # the inconsistency the audit will catch
+
+
+def test_callable_model_malformed_declaration_fails_loudly():
+    def complete(prompt, cot):
+        return "no json here, sorry", 10, 5
+
+    model = CallableModel(complete, name="bad")
+    with pytest.raises(RouteDeclarationError):
+        model.solve(TASKS["sim-001"])

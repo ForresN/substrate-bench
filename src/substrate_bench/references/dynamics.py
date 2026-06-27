@@ -27,12 +27,15 @@ def projectile_drag(params: Mapping[str, float]) -> float:
     c = float(params["drag"])
     g = float(params["g"])
     dt = float(params.get("dt", 0.0005))
+    wind = float(params.get("wind", 0.0))  # horizontal air velocity (+x), default 0
 
     def deriv(state):
         x, y, vx, vy = state
-        speed = math.hypot(vx, vy)
-        ax = -c * speed * vx
-        ay = -g - c * speed * vy
+        # drag acts on velocity relative to the air
+        rvx, rvy = vx - wind, vy
+        speed = math.hypot(rvx, rvy)
+        ax = -c * speed * rvx
+        ay = -g - c * speed * rvy
         return (vx, vy, ax, ay)
 
     def step(state):
@@ -88,3 +91,20 @@ def newton_cooling(params: Mapping[str, float]) -> float:
     k = float(params["k"])
     t = float(params["t"])
     return t_env + (t0 - t_env) * math.exp(-k * t)
+
+
+def radioactive_decay(params: Mapping[str, float]) -> float:
+    """Remaining quantity after time t given a half-life: N0 * (1/2)^(t/half)."""
+    n0 = float(params["n0"])
+    half = float(params["half_life"])
+    t = float(params["t"])
+    return n0 * 0.5 ** (t / half)
+
+
+def rc_charge(params: Mapping[str, float]) -> float:
+    """Capacitor voltage while charging through a resistor: V*(1 - e^(-t/RC))."""
+    v = float(params["v"])
+    r = float(params["r"])
+    c = float(params["c"])
+    t = float(params["t"])
+    return v * (1.0 - math.exp(-t / (r * c)))

@@ -1,0 +1,20 @@
+{
+  "id": "lang-103",
+  "category": "language",
+  "prompt": "Premise: \"All of the cookies were eaten by the children.\" Hypothesis: \"Some cookies are left.\" Does the premise entail the hypothesis, contradict it, or is it neutral? Answer entailment, contradiction, or neutral.",
+  "gold_substrate": [
+    "language"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "contradiction",
+    "labels": [
+      "entailment",
+      "contradiction",
+      "neutral"
+    ]
+  },
+  "difficulty": 2,
+  "rationale": "Natural-language inference.",
+  "provenance": "human_review"
+}

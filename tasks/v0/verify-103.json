@@ -1,0 +1,42 @@
+{
+  "id": "verify-103",
+  "category": "verify",
+  "prompt": "On the grid below ('.' free, '#' wall), does the move sequence ['D','D','R','R'] go from (0,0) to (2,2) without leaving the grid or hitting a wall?\n\n...\n.#.\n...\nAnswer 'valid' or 'invalid'.",
+  "gold_substrate": [
+    "verify"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "labels": [
+      "valid",
+      "invalid"
+    ],
+    "verify_impl": "gridworld",
+    "candidate": {
+      "grid": [
+        "...",
+        ".#.",
+        "..."
+      ],
+      "start": [
+        0,
+        0
+      ],
+      "goal": [
+        2,
+        2
+      ],
+      "moves": [
+        "D",
+        "D",
+        "R",
+        "R"
+      ],
+      "require_optimal": false
+    },
+    "answer": "valid"
+  },
+  "difficulty": 2,
+  "rationale": "Verify a candidate path reaches the goal legally.",
+  "provenance": "reference"
+}

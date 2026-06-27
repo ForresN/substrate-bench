@@ -1,0 +1,48 @@
+{
+  "id": "verify-107",
+  "category": "verify",
+  "prompt": "Is the following 4x4 grid a valid Latin square (each row and each column contains 1,2,3,4 exactly once)? [[1,2,3,4],[2,1,4,3],[3,4,1,2],[4,3,2,1]]  Answer 'valid' or 'invalid'.",
+  "gold_substrate": [
+    "verify"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "labels": [
+      "valid",
+      "invalid"
+    ],
+    "verify_impl": "latin",
+    "candidate": {
+      "grid": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ]
+    },
+    "answer": "valid"
+  },
+  "difficulty": 3,
+  "rationale": "Verify a Latin-square candidate.",
+  "provenance": "reference"
+}

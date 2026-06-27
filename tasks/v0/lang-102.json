@@ -1,0 +1,20 @@
+{
+  "id": "lang-102",
+  "category": "language",
+  "prompt": "Classify the sentiment of this message as positive, negative, or neutral:\n\"Oh, fantastic \u2014 another two-hour delay. Exactly how I wanted to spend my evening.\"",
+  "gold_substrate": [
+    "language"
+  ],
+  "checker": {
+    "type": "exact_label",
+    "answer": "negative",
+    "labels": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "difficulty": 2,
+  "rationale": "Sarcasm: positive words, negative intent.",
+  "provenance": "human_review"
+}

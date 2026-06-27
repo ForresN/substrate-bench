@@ -1,0 +1,20 @@
+{
+  "id": "exact-101",
+  "category": "exact_computation",
+  "prompt": "What is the greatest common divisor of 1071 and 462?",
+  "gold_substrate": [
+    "exact_computation"
+  ],
+  "checker": {
+    "type": "numeric_exact",
+    "reference_impl": "gcd",
+    "params": {
+      "a": 1071,
+      "b": 462
+    },
+    "answer": 21
+  },
+  "difficulty": 1,
+  "rationale": "GCD by exact computation.",
+  "provenance": "reference"
+}
