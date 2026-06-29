@@ -93,6 +93,31 @@ def summarize(results_by_condition: Dict[str, List[Result]]) -> Dict[str, Dict[s
     return {cond: aggregate(res) for cond, res in results_by_condition.items()}
 
 
+def discrimination(metrics_by_condition: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
+    """How well a task set discriminates routing ability across conditions.
+
+    This is the 'discrimination spread' the reframe leans on: a good substrate
+    benchmark separates selective routers (D/E) from the indiscriminate baselines
+    (A/B/C) on substrate-selection accuracy.
+    """
+    if not metrics_by_condition:
+        return {}
+    sub = {c: m["substrate_selection_accuracy"] for c, m in metrics_by_condition.items()}
+    acc = {c: m["task_accuracy"] for c, m in metrics_by_condition.items()}
+    routers = [sub[c] for c in ("D", "E") if c in sub]
+    best_router = max(routers) if routers else float("nan")
+    code_always = sub.get("C")
+    return {
+        "substrate_discrimination_spread": max(sub.values()) - min(sub.values()),
+        "task_accuracy_spread": max(acc.values()) - min(acc.values()),
+        "router_vs_codealways_gap": (
+            best_router - code_always if (routers and code_always is not None) else None
+        ),
+        "best_router_substrate_acc": best_router if routers else None,
+        "codealways_substrate_acc": code_always,
+    }
+
+
 # --------------------------------------------------------------------------- #
 # The acceptance gate (spec section 6)
 # --------------------------------------------------------------------------- #

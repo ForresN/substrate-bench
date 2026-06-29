@@ -1,0 +1,277 @@
+{
+  "benchmark_id": "gpqa-diamond",
+  "rubric_version": "0.1",
+  "note": "Substrate labels only (item id = sha1 hash of question). No GPQA content or answers are stored here.",
+  "items": {
+    "q1b52322a71af": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Hidden input->output mapping must be induced from worked examples and applied: hypothesis-space search, not recall.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q1eb26b9c365e": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 3,
+      "rationale": "Ambiguous between applying the codon table (exact_computation), verifying candidates by translation (verify), and codon-usage knowledge (language); the choice flips C's routing.",
+      "provenance": "rubric",
+      "status": "needs_human_review"
+    },
+    "q205bea64e37a": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Conceptual molecular-biology knowledge (fixation/chromatin); no computation, search, or dynamics.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q244ad3b24fde": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Bioinformatics best-practice knowledge; qualitative reasoning.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q552d4648ec55": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Molecular-cloning reasoning (reading frame); domain knowledge.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q6aa0ad6fa41e": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Experimental-design knowledge (assay selection).",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q6c28824e89cd": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Interpreting an imaging experiment; domain reasoning.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q7320f2791a37": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Genetics epistasis interpretation from phenotypes; qualitative reasoning.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q78ebd3283f0a": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Developmental / epigenetics domain knowledge.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q7e78ddd0dec3": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 3,
+      "rationale": "Molecular-biology sequence/translation reasoning; domain knowledge.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q01003ea300a3": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Reactivity ordering by mechanistic reasoning; conceptual.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q03422fa3fceb": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 3,
+      "rationale": "Organic reaction/mechanism product prediction; domain knowledge.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q0c3266fbcbc4": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 2,
+      "rationale": "Photon energy->wavelength conversion then complementary-colour mapping; a quantitative step is required.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q0de518070dbb": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 3,
+      "rationale": "Equilibrium speciation calculation from stability constants.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q10c15bd663b3": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Retrosynthetic / metathesis reasoning; domain knowledge.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q144f4e59dd2d": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Spectroscopic structure elucidation; interpretive domain knowledge.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q17b2251469fc": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Synthetic route selection; reaction knowledge.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q1a51a6581ff5": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 3,
+      "rationale": "Stereochemical mechanism reasoning; domain knowledge.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q1face88c4e45": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Spectroscopic structure elucidation; interpretive domain knowledge.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q211a3ebbb7fd": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 2,
+      "rationale": "Multistep synthesis route selection; reaction knowledge.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q01028998b46b": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 2,
+      "rationale": "Quantum expectation-value calculation.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q03e76939c85b": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 2,
+      "rationale": "Analytical scaling derivation (number density vs parallax).",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q0a3ad7416d77": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 2,
+      "rationale": "Apparent-magnitude computation against instrument limits.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q0efdac28374e": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 3,
+      "rationale": "Many-fermion energy-level computation (Pauli filling).",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q12efbcd802d6": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 3,
+      "rationale": "Dipole-transition route plus branching-ratio computation.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q133ccdd86018": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 2,
+      "rationale": "Rotation-vibration transition energy -> photon momentum calculation.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q14dde49a9df8": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 3,
+      "rationale": "Relativistic velocity-addition and total-energy calculation.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q1525b2020013": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 2,
+      "rationale": "Relativistic velocity-addition derivation.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q15c8a0dd4fca": {
+      "gold_substrate": [
+        "exact_computation"
+      ],
+      "difficulty": 2,
+      "rationale": "Multi-step orbital-period computation from temperature/mass ratios.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "q160ddd1bf116": {
+      "gold_substrate": [
+        "language"
+      ],
+      "difficulty": 3,
+      "rationale": "Theoretical-physics symmetry knowledge (SMEFT).",
+      "provenance": "rubric",
+      "status": "labelled"
+    }
+  }
+}

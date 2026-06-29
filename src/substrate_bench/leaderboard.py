@@ -8,6 +8,7 @@ from typing import Any, Dict, List
 
 from .conditions import CONDITION_INFO, CONDITION_ORDER
 from .schema import Result
+from .scoring import discrimination
 from .substrates import TASK_BEARING_STRATEGIES
 
 
@@ -70,6 +71,24 @@ def render_leaderboard(
     L.append("")
     L.append("*Composite = 0.6 × task accuracy + 0.4 × substrate-selection accuracy.*")
     L.append("")
+
+    # --- discrimination signal ----------------------------------------------
+    d = discrimination(metrics)
+    if d:
+        gap = d["router_vs_codealways_gap"]
+        L.append("## Discrimination signal")
+        L.append("")
+        L.append(
+            f"- **Substrate-selection spread (max−min across A–E): "
+            f"{d['substrate_discrimination_spread'] * 100:.0f}pp** — how strongly the "
+            "set separates selective routers from the baselines."
+        )
+        if gap is not None:
+            L.append(
+                f"- **Router-vs-Code-always gap: {gap * 100:+.0f}pp** "
+                "(best of D/E minus C, on substrate-selection accuracy)."
+            )
+        L.append("")
 
     # --- substrate-selection accuracy by gold strategy -----------------------
     L.append("## Substrate-selection accuracy by gold strategy")

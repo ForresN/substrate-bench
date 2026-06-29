@@ -1,0 +1,1 @@
+"""GPQA Diamond adapter package."""

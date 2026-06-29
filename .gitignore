@@ -7,7 +7,15 @@ dist/
 .pytest_cache/
 .venv/
 venv/
-# Transient CLI run outputs, except the recorded v0 baseline the gate compares
-# against and the experiment log links to.
+# Transient CLI run outputs, except the recorded smoke baseline the gate compares
+# against. Frontier results are NOT committed (they would embed benchmark answers).
 results/*
-!results/v0-stub.json
+!results/smoke-stub.json
+
+# Benchmark raw data caches: fetched at runtime, never vendored/committed
+# (GPQA is gated + contamination-sensitive; ARC is fetched for uniformity).
+src/substrate_bench/adapters/*/cache/
+
+# Materialised frontier tasks embed benchmark content (e.g. GPQA questions) —
+# they are rebuilt at runtime from adapters + labels + cache, never committed.
+tasks/frontier/

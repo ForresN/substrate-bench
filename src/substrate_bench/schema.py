@@ -34,7 +34,8 @@ class Task:
     checker: dict
     difficulty: int
     rationale: str = ""
-    provenance: str = "reference"  # "reference" | "human_review"
+    provenance: str = "reference"  # answer provenance: reference | human_review | benchmark
+    source: dict = field(default_factory=dict)  # frontier: benchmark + item id + label provenance
 
     def needs_verify(self) -> bool:
         return "verify" in self.gold_substrate
@@ -50,6 +51,31 @@ class RouteDeclaration:
     strategy: str
     executes_code: bool
     rationale: str = ""
+
+
+@dataclass(frozen=True)
+class PromptView:
+    """The ONLY thing a real solver is allowed to see (integrity boundary).
+
+    Carries the prompt and the *answer format* (checker type + any public option
+    labels) — never the gold answer, the category, or the gold_substrate. This
+    matters more for frontier benchmarks, which have known contamination: a
+    solver that could peek at gold would let contaminated pass/fail leak in.
+    """
+
+    id: str
+    prompt: str
+    answer_format: dict
+
+
+def prompt_view(task: Task) -> PromptView:
+    """Project a Task down to the contamination-safe view shown to a solver."""
+    fmt: dict = {"type": task.checker["type"]}
+    # The option set for a multiple-choice / labelled task is public (it is part
+    # of the question), so it is a format hint, not gold. Nothing else leaks.
+    if "labels" in task.checker:
+        fmt["labels"] = list(task.checker["labels"])
+    return PromptView(id=task.id, prompt=task.prompt, answer_format=fmt)
 
 
 @dataclass
@@ -129,8 +155,10 @@ def validate_task(obj: dict) -> Task:
         raise TaskValidationError(f"{obj['id']}: difficulty must be an int in 1..3")
 
     provenance = obj.get("provenance", "reference")
-    if provenance not in ("reference", "human_review"):
-        raise TaskValidationError(f"{obj['id']}: provenance must be 'reference' or 'human_review'")
+    if provenance not in ("reference", "human_review", "benchmark"):
+        raise TaskValidationError(
+            f"{obj['id']}: provenance must be 'reference', 'human_review', or 'benchmark'"
+        )
 
     return Task(
         id=obj["id"],
@@ -141,6 +169,7 @@ def validate_task(obj: dict) -> Task:
         difficulty=diff,
         rationale=obj.get("rationale", ""),
         provenance=provenance,
+        source=dict(obj.get("source", {})),
     )
 
 

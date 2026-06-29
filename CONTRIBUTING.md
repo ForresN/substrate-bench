@@ -56,6 +56,29 @@ Put deterministic, model-free Python in `references/`. It must be pure (no
 network, no randomness, no wall-clock) so scoring stays seed-stable. Wire it into
 `references/gold.py` and assert its output in `tests/test_references.py`.
 
+## 4. Add a benchmark adapter (tier-1 frontier)
+
+Create `adapters/<name>/` with three things:
+
+1. **`manifest.json`** — `benchmark_id`, `name`, `version`, `licence`,
+   `source_url`, `citation`, `redistributable` (bool), `contamination_note`,
+   `fetch_instructions`. Be honest about the licence.
+2. **`adapter.py`** — subclass `BenchmarkAdapter`; implement `fetch(limit)`
+   (populate `cache/`, **respecting the licence** — do NOT vendor where it
+   forbids; gated sources read a token from env), `iter_items()` (yield
+   `RawItem`s from cache), and `to_task_dict(raw, label)` (map to the task schema,
+   **carrying the benchmark's own gold answer**, `provenance="benchmark"`).
+   Register it in `adapters/__init__.py`.
+3. **`labels.json`** — the lab's substrate labels per item, applied via
+   `SUBSTRATE_RUBRIC.md`. Each record: `{gold_substrate, difficulty, rationale,
+   provenance, status}`. Flag ambiguous items `needs_human_review` (excluded from
+   the scored slice). Keep rationales abstract so committing labels leaks nothing.
+
+Hard rules: gold ANSWERS come from the benchmark, gold SUBSTRATE labels from the
+rubric + review — **never a solver**. Caches and materialised `tasks/frontier/`
+are gitignored; only adapters, manifests, and labels are committed. Add offline
+(synthetic-item) tests to `tests/test_adapters.py` — CI must not hit the network.
+
 ## Plugging in a real model
 
 Conditions only ever call `Model.solve(task, *, force_strategy,
@@ -77,7 +100,7 @@ the guardrail is the point. Commit `baselines/` so promotions show in git histor
 
 ```bash
 pytest -q          # all green
-substrate-bench run --condition all --tasks v0   # regenerates leaderboard.md
+substrate-bench run --condition all --tasks smoke   # regenerates leaderboard.md
 ```
 
 Keep the README's [Limitations](README.md#limitations) honest, and **never add

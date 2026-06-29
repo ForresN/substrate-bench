@@ -30,6 +30,9 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 substrate_bench = ["py.typed"]
+"substrate_bench.adapters" = ["SUBSTRATE_RUBRIC.md"]
+"substrate_bench.adapters.arc_agi_2" = ["manifest.json", "labels.json"]
+"substrate_bench.adapters.gpqa_diamond" = ["manifest.json", "labels.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -3,12 +3,12 @@ answer/substrate decoupling. These expectations lock the demonstration."""
 
 import pytest
 
-from conftest import TASKS_V0
+from conftest import TASKS_SMOKE
 from substrate_bench.runner import run_all
 from substrate_bench.schema import load_tasks
 from substrate_bench.scoring import summarize
 
-TASKS = load_tasks(TASKS_V0)
+TASKS = load_tasks(TASKS_SMOKE)
 N = len(TASKS)
 RES = run_all(TASKS)
 M = summarize(RES)

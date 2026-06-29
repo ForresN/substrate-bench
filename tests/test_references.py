@@ -3,12 +3,12 @@ deterministic references -- not by a model. Re-derive each and compare."""
 
 import math
 
-from conftest import TASKS_V0
+from conftest import TASKS_SMOKE
 from substrate_bench.checkers import run_checker
 from substrate_bench.references import gold, search_ref
 from substrate_bench.schema import load_tasks
 
-TASKS = {t.id: t for t in load_tasks(TASKS_V0)}
+TASKS = {t.id: t for t in load_tasks(TASKS_SMOKE)}
 
 
 def test_numeric_exact_golds_match_reference():

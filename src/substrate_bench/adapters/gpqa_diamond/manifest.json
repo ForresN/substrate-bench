@@ -1,0 +1,11 @@
+{
+  "benchmark_id": "gpqa-diamond",
+  "name": "GPQA (Diamond split)",
+  "version": "diamond",
+  "licence": "CC BY 4.0 (gated; carries a canary + anti-contamination request)",
+  "source_url": "https://huggingface.co/datasets/Idavidrein/gpqa",
+  "citation": "Rein, D. et al. GPQA: A Graduate-Level Google-Proof Q&A Benchmark. arXiv:2311.12022 (2023).",
+  "redistributable": false,
+  "contamination_note": "GATED. The authors embed a canary string and ask that questions/answers not be posted publicly or used for training, to protect the benchmark from contamination. We therefore NEVER vendor or commit any GPQA content or answers: the cache/ is gitignored, and only our substrate labels (item id + strategy + abstract rationale) are committed.",
+  "fetch_instructions": "Accept the dataset licence on Hugging Face, then set HUGGING_FACE_TOKEN (or HF_TOKEN) in the environment and run `substrate-bench frontier fetch --benchmark gpqa-diamond`. The CSV is cached locally and never committed."
+}

@@ -1,0 +1,276 @@
+{
+  "benchmark_id": "arc-agi-2",
+  "rubric_version": "0.1",
+  "items": {
+    "0934a4d8": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "135a2760": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "136b0064": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "13e47133": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "142ca369": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "16b78196": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "16de56c4": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "1818057f": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "195c6913": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "1ae2feb7": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "20270e3b": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "20a9e565": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "21897d95": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "221dfab4": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "247ef758": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "269e22fb": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "271d71e2": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "28a6681f": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "291dc1e1": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "2b83f449": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "2ba387bc": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "2c181942": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "2d0172a1": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "31f7f899": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "332f06d7": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "35ab12c3": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "36a08778": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "38007db0": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "3a25b0d8": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    },
+    "3dc255db": {
+      "gold_substrate": [
+        "search"
+      ],
+      "difficulty": 3,
+      "rationale": "Abstract grid transformation induced from worked examples: hypothesis-space search, not verbal pattern-matching.",
+      "provenance": "rubric",
+      "status": "labelled"
+    }
+  }
+}

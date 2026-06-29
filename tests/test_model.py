@@ -5,7 +5,7 @@ import json
 
 import pytest
 
-from conftest import TASKS_V0
+from conftest import TASKS_SMOKE
 from substrate_bench.checkers import run_checker
 from substrate_bench.model import (
     CallableModel,
@@ -16,7 +16,7 @@ from substrate_bench.model import (
 )
 from substrate_bench.schema import load_tasks
 
-TASKS = {t.id: t for t in load_tasks(TASKS_V0)}
+TASKS = {t.id: t for t in load_tasks(TASKS_SMOKE)}
 
 
 # --- StubModel emits a declaration ---------------------------------------- #

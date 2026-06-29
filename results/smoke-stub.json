@@ -1,6 +1,6 @@
 {
   "config": {
-    "task_set": "v0",
+    "task_set": "smoke",
     "n_tasks": 46,
     "conditions": [
       "A",

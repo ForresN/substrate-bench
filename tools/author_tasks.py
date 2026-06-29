@@ -22,7 +22,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from substrate_bench.references import dynamics, gold as goldmod, search_ref, verify_ref  # noqa: E402
 from substrate_bench.references import arithmetic  # noqa: E402
 
-OUT = ROOT / "tasks" / "v0"
+OUT = ROOT / "tasks" / "smoke"
 NUMERIC = goldmod._NUMERIC_IMPLS
 
 

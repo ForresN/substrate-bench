@@ -9,6 +9,7 @@ from substrate_bench.scoring import (
     aggregate,
     classify_failure,
     composite_score,
+    discrimination,
     evaluate_gate,
 )
 
@@ -146,3 +147,23 @@ def test_gate_rejects_non_reproducible():
 def test_gate_cost_boundary_exactly_15pct_ok():
     g = evaluate_gate(_metrics(0.80, 0.10), _metrics(0.90, 0.115), reproducible=True)
     assert g.accepted  # +15.0% exactly is within budget
+
+
+# --- discrimination signal ------------------------------------------------ #
+def test_discrimination_spread_and_router_gap():
+    metrics = {
+        "A": {"substrate_selection_accuracy": 0.2, "task_accuracy": 0.1},
+        "B": {"substrate_selection_accuracy": 0.2, "task_accuracy": 0.3},
+        "C": {"substrate_selection_accuracy": 0.25, "task_accuracy": 0.25},
+        "D": {"substrate_selection_accuracy": 0.9, "task_accuracy": 0.9},
+        "E": {"substrate_selection_accuracy": 1.0, "task_accuracy": 1.0},
+    }
+    d = discrimination(metrics)
+    assert d["substrate_discrimination_spread"] == pytest.approx(0.8)   # 1.0 - 0.2
+    assert d["router_vs_codealways_gap"] == pytest.approx(0.75)         # best(D,E)=1.0 - C=0.25
+    assert d["best_router_substrate_acc"] == pytest.approx(1.0)
+
+
+def test_discrimination_handles_missing_conditions():
+    d = discrimination({"A": {"substrate_selection_accuracy": 0.3, "task_accuracy": 0.3}})
+    assert d["router_vs_codealways_gap"] is None  # no D/E or C present

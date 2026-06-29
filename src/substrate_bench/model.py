@@ -19,7 +19,7 @@ from dataclasses import dataclass
 from typing import Any, Callable, Optional, Protocol, Tuple, runtime_checkable
 
 from .references import gold
-from .schema import RouteDeclaration, Task
+from .schema import RouteDeclaration, Task, prompt_view
 from .substrates import (
     LINGUISTIC_STRATEGIES,
     STRATEGIES,
@@ -256,6 +256,10 @@ class CallableModel:
         force_executes_code: Optional[bool] = None,
         cot: bool = False,
     ) -> SolverResponse:
+        # Integrity boundary: a real solver only ever sees the prompt-only view
+        # (no gold, no category, no gold_substrate) -- contract integrity.
+        view = prompt_view(task)
+
         if force_strategy is None:
             instruction = (
                 "\n\nFirst decide which cognitive strategy this task requires "
@@ -263,7 +267,7 @@ class CallableModel:
                 'object: {"strategy": ..., "executes_code": true|false, '
                 '"rationale": ..., "answer": <final answer>}.'
             )
-            text, in_tok, out_tok, observed = self._call(task.prompt + instruction, cot)
+            text, in_tok, out_tok, observed = self._call(view.prompt + instruction, cot)
             decl, answer = parse_declaration(task, text)
             code_executed = observed if observed is not None else decl.executes_code
             return SolverResponse(decl, answer, code_executed, in_tok, out_tok, text)
@@ -279,7 +283,7 @@ class CallableModel:
             if cot
             else "\n\nEnd with a line: Answer: <answer>"
         )
-        text, in_tok, out_tok, observed = self._call(task.prompt + instruction, cot)
+        text, in_tok, out_tok, observed = self._call(view.prompt + instruction, cot)
         decl = RouteDeclaration(force_strategy, executes_code, rationale="(fixed by condition)")
         code_executed = observed if observed is not None else executes_code
         return SolverResponse(decl, parse_answer(task, text), code_executed, in_tok, out_tok, text)

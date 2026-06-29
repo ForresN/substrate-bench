@@ -1,10 +1,10 @@
 """`substrate-bench` command line.
 
     substrate-bench run --condition all --tasks v0
-    substrate-bench leaderboard --from results/v0-stub.json
-    substrate-bench baseline show --solver stub --task-set v0
-    substrate-bench baseline promote results/v0-stub.json --solver stub --task-set v0   # human-only
-    substrate-bench gate results/candidate.json --solver stub --task-set v0 --condition E
+    substrate-bench leaderboard --from results/smoke-stub.json
+    substrate-bench baseline show --solver stub --task-set smoke
+    substrate-bench baseline promote results/smoke-stub.json --solver stub --task-set smoke   # human-only
+    substrate-bench gate results/candidate.json --solver stub --task-set smoke --condition E
 """
 
 from __future__ import annotations
@@ -58,7 +58,7 @@ def _parse_conditions(value: str) -> List[str]:
 
 
 def run_benchmark(
-    task_set: str = "v0",
+    task_set: str = "smoke",
     conditions: Sequence[str] = CONDITION_ORDER,
     solver: str = "stub",
     tasks_dir: Optional[str] = None,
@@ -196,13 +196,39 @@ def cmd_gate(ns: argparse.Namespace) -> int:
     return 0 if g.accepted else 1
 
 
+def cmd_frontier(ns: argparse.Namespace) -> int:
+    from . import frontier
+    from .adapters import available
+
+    if ns.frontier_cmd == "list":
+        for bid in available():
+            s = frontier.label_summary(bid)
+            print(f"{bid}: labelled={s['labelled']} needs_review={s['needs_human_review']} total={s['total']}")
+        return 0
+    if ns.frontier_cmd == "fetch":
+        benchmarks = available() if ns.benchmark in (None, "all") else [ns.benchmark]
+        for bid in benchmarks:
+            try:
+                n = frontier.fetch(bid, limit=ns.limit)
+                print(f"{bid}: cached {n} items")
+            except Exception as exc:  # licence/token/network issues are expected
+                print(f"{bid}: fetch failed: {exc}", file=sys.stderr)
+        return 0
+    if ns.frontier_cmd == "build":
+        benchmarks = None if ns.benchmark in (None, "all") else [ns.benchmark]
+        tasks = frontier.build(benchmarks=benchmarks, include_needs_review=ns.include_needs_review)
+        print(f"built {len(tasks)} frontier tasks -> {frontier.frontier_dir()}")
+        return 0
+    return 2
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="substrate-bench", description="Substrate-selection benchmark.")
     sub = p.add_subparsers(dest="cmd", required=True)
 
     r = sub.add_parser("run", help="run conditions over a task set and regenerate the leaderboard")
     r.add_argument("--condition", default="all", help="'all' or a subset like 'D,E' (default: all)")
-    r.add_argument("--tasks", default="v0", help="task set name under tasks/ (default: v0)")
+    r.add_argument("--tasks", default="smoke", help="task set name under tasks/ (default: smoke)")
     r.add_argument("--tasks-dir", default=None, help="explicit path to a task directory")
     r.add_argument("--solver", default="stub", choices=sorted(SOLVERS), help="solver/model (default: stub)")
     r.add_argument("--seed", type=int, default=0, help="seed, recorded for reproducibility")
@@ -233,6 +259,19 @@ def build_parser() -> argparse.ArgumentParser:
     gt.add_argument("--task-set", dest="task_set", required=True)
     gt.add_argument("--condition", default="E", help="condition to gate on (default: E)")
     gt.set_defaults(func=cmd_gate)
+
+    fr = sub.add_parser("frontier", help="tier-1 frontier tasks: fetch benchmark data, build tasks, list labels")
+    frsub = fr.add_subparsers(dest="frontier_cmd", required=True)
+    frl = frsub.add_parser("list", help="show labelled / needs-review counts per benchmark")
+    frl.set_defaults(func=cmd_frontier)
+    frf = frsub.add_parser("fetch", help="fetch+cache raw benchmark data (respects licences/tokens)")
+    frf.add_argument("--benchmark", default="all", help="benchmark id or 'all'")
+    frf.add_argument("--limit", type=int, default=None, help="cap items fetched (where supported)")
+    frf.set_defaults(func=cmd_frontier)
+    frb = frsub.add_parser("build", help="materialise tasks/frontier/ from adapters + labels + cache")
+    frb.add_argument("--benchmark", default="all", help="benchmark id or 'all'")
+    frb.add_argument("--include-needs-review", action="store_true", help="also build needs_human_review items")
+    frb.set_defaults(func=cmd_frontier)
     return p
 
 

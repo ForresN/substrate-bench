@@ -101,6 +101,12 @@ def wrong_answer(task: Task) -> Any:
     if ctype == "sequence_valid":
         return []  # empty sequence never solves the problem
     if ctype == "grid_match":
-        # Return the test input unchanged -- the rule is non-identity, so this fails.
-        return [list(row) for row in c["test_input"]]
+        # Smoke tasks carry the test input (the rule is non-identity, so echoing it
+        # fails). Frontier (ARC) tasks don't, so perturb the gold grid deterministically.
+        if "test_input" in c:
+            return [list(row) for row in c["test_input"]]
+        grid = [list(row) for row in c["answer"]]
+        if grid and grid[0]:
+            grid[0][0] = (grid[0][0] + 1) % 10  # guaranteed to differ from gold
+        return grid or [[0]]
     raise ValueError(f"unknown checker type {ctype!r}")

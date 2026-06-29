@@ -24,14 +24,16 @@ from .model import (
 from .registry import PromotionDenied, promote_baseline, show_baseline
 from .runner import run_all, run_condition, score_output
 from .schema import (
+    PromptView,
     Result,
     RouteDeclaration,
     SolverOutput,
     Task,
     load_task,
     load_tasks,
+    prompt_view,
 )
-from .scoring import aggregate, composite_score, evaluate_gate, summarize
+from .scoring import aggregate, composite_score, discrimination, evaluate_gate, summarize
 from .substrates import STRATEGIES, TASK_BEARING_STRATEGIES, default_executes_code
 
 __version__ = "0.1.0"
@@ -40,6 +42,8 @@ __all__ = [
     "Task",
     "Result",
     "RouteDeclaration",
+    "PromptView",
+    "prompt_view",
     "SolverOutput",
     "SolverResponse",
     "load_task",
@@ -61,6 +65,7 @@ __all__ = [
     "score_output",
     "aggregate",
     "summarize",
+    "discrimination",
     "composite_score",
     "evaluate_gate",
     "show_baseline",

@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from conftest import TASKS_V0
+from conftest import TASKS_SMOKE
 from substrate_bench.schema import TaskValidationError, load_tasks, validate_task
 
 ORIGINAL_TEN = {
@@ -23,7 +23,7 @@ def _base():
 
 
 def test_loads_the_grown_v0_set():
-    tasks = load_tasks(TASKS_V0)
+    tasks = load_tasks(TASKS_SMOKE)
     assert len(tasks) >= 46
     ids = {t.id for t in tasks}
     assert ORIGINAL_TEN <= ids
@@ -31,12 +31,12 @@ def test_loads_the_grown_v0_set():
 
 
 def test_v0_tasks_are_valid_json_and_schema():
-    for p in TASKS_V0.glob("*.json"):
+    for p in TASKS_SMOKE.glob("*.json"):
         validate_task(json.loads(p.read_text(encoding="utf-8")))
 
 
 def test_remapped_golds():
-    tasks = {t.id: t for t in load_tasks(TASKS_V0)}
+    tasks = {t.id: t for t in load_tasks(TASKS_SMOKE)}
     assert tasks["exact-001"].gold_substrate == ["exact_computation"]
     assert tasks["social-001"].gold_substrate == ["social"]
     assert tasks["rule-001"].gold_substrate == ["search"]
@@ -45,19 +45,19 @@ def test_remapped_golds():
 
 
 def test_no_task_uses_the_removed_code_strategy():
-    for t in load_tasks(TASKS_V0):
+    for t in load_tasks(TASKS_SMOKE):
         assert "code" not in t.gold_substrate
 
 
 def test_provenance_split():
-    tasks = {t.id: t for t in load_tasks(TASKS_V0)}
+    tasks = {t.id: t for t in load_tasks(TASKS_SMOKE)}
     assert tasks["sim-101"].provenance == "reference"
     assert tasks["lang-101"].provenance == "human_review"
     assert tasks["social-101"].provenance == "human_review"
 
 
 def test_needs_verify_flag():
-    tasks = {t.id: t for t in load_tasks(TASKS_V0)}
+    tasks = {t.id: t for t in load_tasks(TASKS_SMOKE)}
     assert tasks["exact-002"].needs_verify() is True
     assert tasks["exact-001"].needs_verify() is False
 

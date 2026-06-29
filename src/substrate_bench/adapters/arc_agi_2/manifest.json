@@ -1,0 +1,11 @@
+{
+  "benchmark_id": "arc-agi-2",
+  "name": "ARC-AGI-2",
+  "version": "public-eval",
+  "licence": "Apache-2.0",
+  "source_url": "https://github.com/arcprize/ARC-AGI-2",
+  "citation": "Chollet, F. et al. ARC-AGI-2: A New Challenge for Frontier AI Reasoning Systems. arXiv:2505.11831 (2025).",
+  "redistributable": true,
+  "contamination_note": "Public evaluation set designed to resist memorisation. Fetched at runtime and cached under cache/ (gitignored); not vendored, to keep the repo a measurement layer rather than a data mirror.",
+  "fetch_instructions": "Automatic: `substrate-bench frontier fetch --benchmark arc-agi-2 [--limit N]` pulls task JSONs from the public GitHub repo (data/evaluation). No credentials required."
+}
