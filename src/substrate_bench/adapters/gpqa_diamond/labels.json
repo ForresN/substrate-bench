@@ -14,12 +14,13 @@
     },
     "q1eb26b9c365e": {
       "gold_substrate": [
-        "exact_computation"
+        "exact_computation",
+        "verify"
       ],
       "difficulty": 3,
-      "rationale": "Ambiguous between applying the codon table (exact_computation), verifying candidates by translation (verify), and codon-usage knowledge (language); the choice flips C's routing.",
-      "provenance": "rubric",
-      "status": "needs_human_review"
+      "rationale": "Adjudicated: select the DNA that encodes the target protein. Solving = translate each candidate via the genetic code (deterministic mapping -> exact_computation) and check it against the target protein (verify). Rubric step 4 + verify co-label; the deterministic mapping is primary, so this is not pure recall.",
+      "provenance": "human_review",
+      "status": "labelled"
     },
     "q205bea64e37a": {
       "gold_substrate": [
